@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=a, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Informe o saldo da Conta</label>
+    <input type="text" id="input_saldo">
+    <br>
+    <label for="">Quantos irá débitar?</label>
+    <input type="text" id="input_debito">
+    <button onclick="checkAnalise()">Analisar Conta</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function checkAnalise (){
+        var saldoConta = Number(input_saldo.value);
+        var debitoConta = Number(input_debito.value);
+        var saldoAtualizado = saldoConta - debitoConta;
+
+        if(saldoAtualizado > 0){
+            div_mensagem.innerHTML += `O saldo atual da conta corrente é R$${saldoAtualizado}<br>`; 
+        }else {
+            div_mensagem.innerHTML += `<br><b style="color: red">O saldo atual da conta corrente é R$${saldoAtualizado}</b><br>`;
+        }
+    
+    }
+
+</script>

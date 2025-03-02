@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Informe um número: 
+    <input type="" id="input_num">
+    <button onclick="analisar()">analisar</button>
+    <button onclick="adicionar()">dicionar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+
+<script>
+    
+    function analisar(){
+        var num = Number(input_num.value);
+        var numMedidor = 42;
+
+        if (num <= numMedidor){
+            div_mensagem.innerHTML = `O número ${num} é menor que ${numMedidor}`;
+        } if(num >= numMedidor){
+            div_mensagem.innerHTML = `O número ${num} é maior que ${numMedidor}`;
+        } if (num == numMedidor) {
+            div_mensagem.innerHTML = `O número ${num} é igual a ${numMedidor}`;
+        } if (num != numMedidor){
+            div_mensagem.innerHTML = "O que tu inseriu num compensa";   
+        }
+    
+    }
+
+    function adicionar(){
+        var texto = input_num.value;
+
+        div_mensagem.innerHTML += `<br> ${texto} <br>`;
+
+    }
+
+
+
+
+
+
+</script>

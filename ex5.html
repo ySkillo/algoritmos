@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for=""></label>
+    <input type="text" id="input_kwh">
+    <button onclick="calcularConta()">Calcular conta de luz</button>
+</body>
+</html>
+
+<script>
+
+    function calcularConta(){
+        var qntKwh = Number(input_kwh.value);
+        var resultado = qntKwh * 0.85;
+        var desconto = resultado * 0.9;
+        if(qntKwh < 100){
+            alert(`valor da conta a ser pago com desconto é R$${desconto.toFixed(2)}`);
+
+        }else{
+            alert(`valor da conta sem desconto: R$${resultado}`);
+        }
+    }
+
+</script>

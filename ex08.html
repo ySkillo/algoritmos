@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="padrao.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Crie um programa que controle o peso médio dentro de um elevador:  
+
+    a) Solicite a quantidade de homens que entraram no elevador 
+
+    b) Solicite a quantidade de mulheres que entraram no elevador 
+
+    c) Ao clicar em "Analisar peso", calcule o peso estimado sendo: homens x 80 somado com mulheres x 60 
+
+    d) Exiba na página a mensagem "Este elevador suporta 800 Kg e o peso estimado desta lotação é de XXXkg"  
+
+    e) Se o peso estimado for maior que 800, exibir também a mensagem "Será necessário que alguém desça para que o elevador se movimente" - na cor azul.
+        -->
+
+    <div class="box">
+        <h1>PROGRAMA</h1>
+        
+        <label for="input_qntHomens">Quantidade de Homens</label>
+        <input type="number" placeholder="Informe..." id="input_qntHomens">
+        <label for="input_qntMulheres">Quantidade de Mulheres</label>
+        <input type="number" id="input_qntMulheres" placeholder="Informe...">
+
+        <div class="box-buttons">
+            <button onclick="analisarPeso()">Peso</button>
+            <button onclick="limpar()">Limpar</button>
+        </div>
+
+    </div>    
+
+    <div class="box">
+        <h1>NOTIFICAÇÃO</h1>
+        
+        <div>
+            <div id="overFlow">
+                <p id="p_mensagem"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+ <script>
+
+    var color = "blue";
+
+    function analisarPeso(){
+        var qntHomens = Number(input_qntHomens.value);
+        var qntMulheres = Number(input_qntMulheres.value);
+        var resulHomens = qntHomens * 80;
+        var resulMulheres = qntMulheres * 60;
+        var resultado = resulHomens + resulMulheres;
+
+
+        if(resultado > 800){
+            p_mensagem.innerHTML += `<b style="color: ${color}">Será necessário que alguém desça para que o elevador se movimente</b><br>`
+        } else{
+            p_mensagem.innerHTML += `<br><b>Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${resultado}kg</b><br>`
+        }
+    }
+
+    function limpar(){
+        p_mensagem.innerHTML = " ";
+    }
+
+
+ </script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="padrao.css">
+    <title>Document</title>
+</head>
+<body>
+
+        <!-- 10. Crie um programa que faça:  
+
+        a) Pergunte ao usuário o valor de seu saldo na conta do banco 
+
+        b) Ao clicar no botão "Verificar finanças": 
+
+        b1) Caso o saldo em conta for igual a zero (==0), exiba esta frase na cor preta na tela: "Conta zerada".  
+
+        b2) Caso o saldo seja negativo (<0), exiba esta frase na cor vermelha na tela: "Está devendo!".   
+
+        b3) Caso o saldo seja positivo (>0), exiba esta frase na cor azul: "Saldo positivo! sorriso"   -->
+
+
+    <div class="box">
+        <h1>PROGRAMA</h1>
+        
+        <label for="input_Saldo">Informe seu Saldo</label>
+        <input type="number" placeholder="Informe..." id="input_Saldo">
+
+        <div class="box-buttons">
+            <button onclick="verificarFinanca()">Verificar</button>
+            <button onclick= "limpar()">Limpar</button>
+        </div>
+
+    </div>    
+
+    <div class="box">
+        <h1>NOTIFICAÇÃO</h1>
+        
+        <div>
+            <div id="overFlow">
+                <p id="p_mensagem"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+ <script>
+
+    var colorBlue = "blue";
+    var colorRed = "red";
+    var colorBlack = "black";
+
+    function verificarFinanca(){
+        var saldo = Number(input_Saldo.value);
+
+        if(saldo == 0){
+            p_mensagem.innerHTML = `<b style="color: ${colorBlack}"> conta zerada.</b><br>`
+        }  if(saldo < 0){
+            p_mensagem.innerHTML = `<b style="color: ${colorRed}"> está devendo!</b><br>`
+        } if(saldo > 0){
+            p_mensagem.innerHTML = `<b style="color: ${colorBlue}"> saldo positivo! sorriso:)</b><br>`
+        }
+    }
+
+    function limpar(){
+        p_mensagem.innerHTML = " ";
+    }
+
+
+ </script>
+
