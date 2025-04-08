@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- a) Solicite a quantidade de cada doce a ser vendido (Macarons, Brigadeiros Gourmets, Cupcakes e Cheesecakes).
+
+b) Solicite o preço da unidade de cada tipo de doce.
+
+c) Ao clicar no botão "Verificar Vendas", caso todos os valores não sejam negativos, 
+prossiga. Caso contrário, exiba uma mensagem de erro explicativa e encerre.
+
+d) De acordo com a quantidade de cada produto informado, exiba um extrato contendo: 
+
+        "NÚMERO DA VENDA   -   IMAGEM DO DOCE   -   R$ VALOR UNITÁRIO"
+
+e) A ordem de listagem dos doces sempre será: 
+
+          Primeiro os "Macarons"
+          Logo após, os "Brigadeiros"
+          Em seguida, os "Cupcakes"
+          Por último, os "Cheesecakes" 
+
+Caso a quantidade informada de algum desses doces seja 0, deve pular para a 
+listagem do próximo doce, continuando a contagem da venda (ou seja, caso o usuário informe 
+"0 macarons", o programa deve pular a exibição dos "Macarons" e começar com o "Brigadeiro" sendo a primeira venda da lista).
+
+f) Ao finalizar a listagem das vendas, deve exibir uma mensagem com uma frase como esta: 
+
+        "Com a quantidade de WWWW Macarons, VVVV Brigadeiros, XXXX Cupcakes e YYYY Cheesecakes, a venda totalizará R$ZZZZ"
+
+OBS: note que são 4 entradas para o item a) e mais 4 entradas para o item b).
+
+OBS II: crie as tags img através do JavaScript para gerar as imagens dos doces dinamicamente, 
+de acordo com cada mensagem exibida, utilizando imagens pequenas (recomendado até 100px)  
+para facilitar a visualização das linhas.
+
+OBS III: repare que, no exemplo de funcionamento, o programa pula a exibição dos Cupcakes, 
+porém, continua a contagem das vendas sequencialmente. -->
+
+
+
+Informe qnt de Macarons: 
+<input type="number" id="input_Mac"> preço R$:<input type="number" id="input_precoMac"><br>
+Informe qnt de Brigadeiros:
+<input type="number" id="input_Bri"> preço R$:<input type="number" id="input_precoBri"><br>
+Informe qnt de Cupcakes:
+<input type="number" id="input_Cup"> preço R$:<input type="number" id="input_precoCup"><br>
+Informe qnt de Cheesecakes:
+<input type="number" id="input_Chee"> preço R$:<input type="number" id="input_precoChee"><br><br>
+
+<button onclick="checkVendas()">Verificar Vendas</button>
+<div id="div_mensagem"></div>
+
+    
+</body>
+</html>
+
+<script>
+
+    function checkVendas(){
+        var macarons = Number(input_Mac.value);
+        var brigadeiro = Number(input_Bri.value);
+        var cupcakes = Number(input_Cup.value);
+        var cheesecakes = Number(input_Chee.value);
+        var precM = Number(input_precoMac.value);
+        var precB = Number(input_precoBri.value);
+        var precCup = Number(input_precoCup.value);
+        var precChee = Number(input_precoChee.value);
+        var mensagem = ``;
+
+        div_mensagem.innerHTML = mensagem;
+
+        if(
+            macarons < 0 ||
+            brigadeiro < 0 ||
+            cupcakes < 0 ||
+            cheesecakes < 0 ||
+            precM < 0 ||
+            precB < 0 ||
+            precCup < 0 ||
+            precChee < 0 ||
+            mensagem < 0 ||
+            qntVenda < 0
+        ){
+            alert("Não pode informar números negativos")
+        }else{
+
+            var qntVenda = 1;
+            
+            
+            while (qntVenda <= macarons){
+                mensagem += `<br>${qntVenda} - IMG - R$${precM}`;
+                qntVenda++;
+            }
+            div_mensagem.innerHTML += `${mensagem}`
+            
+
+            
+
+        }
+
+
+    }
+
+</script>

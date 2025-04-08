@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Crie um programa o qual:  
+
+    a) Pergunte a temperatura atual  
+
+    b) Ao clicar em "Ver situação"...  
+
+    c) Caso a temperatura seja entre 21 e 24, exibir um alert com a frase "Temperatura confortável :D"  
+
+    d) Caso a temperatura não estiver no intervalo definido em c), exibir um alert com a frase "Temperatura DESCONFORTÁVEL :C"   -->
+
+
+    Informe a temperatura atual:
+    <input type="text" id="input_temp"><br>
+
+    <button id="analisarTemp()">Ver situação</button><br>
+
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+
+<script>
+
+
+    function analisarTemp(){
+        var temp = Number(input_temp.value);
+
+        if(temp < 21 && temp > 24){
+            alert("Temperatura DESCONFORTÁVEL :C");
+        }else{
+            alert("Temperatura confortável :D");
+        }
+    }
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o Nick:
+    <input type="text" id="input_nick"><br>
+    Informe quantos rounds:
+    <input type="text"id="input_qntRound"><br>
+    Informe quantas Kills:
+    <input type="text" id="input_kills"><br>
+    Informe quantas vezes morreu:
+    <input type="text" id="input_qntMorreu"><br>
+
+    <button onclick="checkMvp()">KD e KDR</button>
+    <button onclick="analiseMvp()">MVP</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+
+<script>
+
+    var qntMvp = 0;
+    var colorVitoria = "green";
+    var colorDerrota = "red";
+
+    function checkMvp(){
+        var nick = input_nick.value;
+        var rounds = Number(input_qntRound.value);
+        var kills = Number(input_kills.value);
+        var mortes = Number(input_qntMorreu.value);
+        
+        var kd = kills/mortes;
+        var kr = kills/mortes;
+
+        if(kd > 1){
+            qntMvp += 1;
+            div_mensagem.innerHTML = `<br><i>O jogador ${nick}</i><br>
+                teve o K/D de ${kd}<br>
+                teve o K/R de ${kr}<br>
+                <i style="color: ${colorVitoria}">Parabéns você merece o MVP</i>`;
+        }else{
+            div_mensagem.innerHTML = `<br><i>O jogador ${nick}</i><br>
+                teve o K/D de ${kd}<br>
+                teve o K/R de ${kr}<br>
+                <i style="color: ${colorDerrota}">Melhore você não merece o MVP</i>`;
+        }
+
+    }
+
+    function analiseMvp(){
+        alert(`Você foi ${qntMvp} vez MVP`);
+    }
+
+</script>

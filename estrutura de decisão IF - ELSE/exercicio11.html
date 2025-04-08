@@ -7,16 +7,43 @@
     <title>Document</title>
 </head>
 <body>
+
+
+<!-- 
+    11. Crie um programa o qual:  
+
+    a) Solicite a quantidade de filhos que o usuário tem  
+    
+    b) Tenha um botão "Analisar família". Ao clicar nele...  
+    
+    c) Caso tenha 1 ou mais filhos, exiba na tela, abaixo do botão, a frase "Não tem TV" 
+    
+    d) Caso tenha 2 ou mais filhos, exiba na tela, abaixo da frase em c), a frase "Não tem internet" 
+    
+    e) Caso tenha 3 ou mais filhos, exiba na tela, abaixo da frase em d), a frase "Não tem video game" 
+    
+    f) Caso tenha 4 ou mais filhos, exiba na tela, abaixo da frase em e), a frase "Não tem Netflix" 
+    
+        OBS: Ou seja, caso o usuário informe que tenha, por exemplo,  4 ou mais filhos, devem aparecer as seguintes frases:  
+    
+              Não tem TV  
+    
+              Não tem internet  
+    
+              Não tem video game  
+    
+              Não tem Netflix  
+    
+        Se tiver 2 filhos, deve exibir apenas "Não tem TV" e "Não tem internet", de acordo com as validações descritas acima -->
+
     <div class="box">
         <h1>PROGRAMA</h1>
         
-        <label for="">Email</label>
-        <input type="text" placeholder="Informe...">
-        <label for="">Senha</label>
-        <input type="text">
+        <label for="">Quantidade de filhos</label>
+        <input type="number" placeholder="Informe..." id="input_qntFilhos">
 
         <div class="box-buttons">
-            <button>Inicio</button>
+            <button onclick="analiseFamilia()">Analisar Familia</button>
             <button onclick= "limpar()">Limpar</button>
         </div>
 
@@ -36,6 +63,23 @@
 
 
  <script>
+
+    function analiseFamilia(){
+        var filhos = Number(input_qntFilhos.value);
+
+        if(filhos >= 1){
+            p_mensagem.innerHTML += `<b style="color: red">Não tem TV<b><br>`
+        } if(filhos >= 2 ){
+            p_mensagem.innerHTML += `<b style="color: red">Não tem Internet<b><br>`
+        } if(filhos >= 3 ){ 
+            p_mensagem.innerHTML += `<b style="color: red">Não tem video game<b><br>`
+        } if(filhos == 4) {
+            p_mensagem.innerHTML += `<b style="color: red">Não tem netflix<b><br>`;
+        }if(filhos == 0){
+            p_mensagem.innerHTML += `<b style="color: green">Você não tem filhos<b><br>`;
+        }
+
+    }
 
     function limpar(){
         p_mensagem.innerHTML = " ";

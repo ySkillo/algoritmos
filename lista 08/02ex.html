@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Imagine que Robervaldo está buscando um novo celular. Ele tem algumas preferências específicas para a escolha de modelo.
+
+    Robervaldo prefere celulares com tela grande (acima de 6.5 polegadas) e que sejam da cor preta ou prata.
+
+    Com base nessas informações, crie um simulador no qual:
+
+    a) Solicite o tamanho da tela do celular encontrado.
+
+    b) Solicite a cor do celular encontrado, dentre as opções:
+
+    Preto
+    Prata
+    Azul
+    Vermelho
+    c) Ao clicar em "Será que ele gosta?", mostre, abaixo:
+
+    A imagem de uma pessoa feliz, caso as características do celular coincidam com as preferências de Robervaldo.
+    Ou a imagem de uma pessoa decepcionada, caso contrário. -->
+
+    informe o tamanho do celular:
+    <input type="text" id="input_tamanho">
+    <br>
+    <select id="select_cor">
+        <option value="1">Preto</option>
+        <option value="2">Prata</option>
+        <option value="3">Azul</option>
+        <option value="4">Vermelho</option>
+    </select><br>
+    <button onclick="fazerAnalise()">Será que ele gosta?</button><br>
+    <div id="mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    function fazerAnalise(){
+        var tamanho = Number(input_tamanho.value);
+        var cor = Number(select_cor.value);
+
+        if(tamanho > 6.5 && (cor == 1 || cor == 2)){
+            mensagem.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTz_QVmCvQAJUMNxtWL0F1P_YGUQDSxdhhDw&s">`
+        }else{
+            mensagem.innerHTML = `<img src="https://super.abril.com.br/wp-content/uploads/2018/07/500dad5a9827684fc200011cbebe-chorando-site.jpg?quality=70&w=720&crop=1">`
+        
+        }
+
+    }
+
+</script>

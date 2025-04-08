@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- George Quisito está pesquisando por uma nova TV de 40" 
+    porque suspeita que o governador de seu estado irá prorrogar 
+    a quarentena por mais 1 mês e sua TV atual é de 22" apenas. 
+    Porém, ele é desconfiado com preços muito baixos e, claro, possui um teto, 
+    um limite máximo que está disposto a pagar. Assim, crie para ele um programa o qual: 
+
+    a) Solicite a marca da TV (dentre as opções "Samsung", "LG", "Mondial" e "Britânia") 
+
+    b) Solicite o preço da TV 
+
+    c) Ao clicar em "Analisar compra", podem aparecer as seguintes mensagens na tela: 
+
+       c.1) "TV fora da faixa de preço", caso a TV custar menos que 800 ou mais que 2000  
+
+       c.2) "Na faixa de preço, porém marca não confiável", caso esteja na faixa entre 800 e 2000, porém for da "Mondial" ou "Britânia"  
+
+       c.3) Caso tenha exibido a mensagem de c.1), exiba também essa outra frase, caso custar menos de 800: "Preço baixo demais!". Ou, caso custar mais de 2000, exiba esta: "TV cara demais, infelizmente" 
+
+       c.4) Caso a TV esteja na faixa de preço e for da "LG" ou "Samsung", exiba "Essa TV pode entrar na sua lista!"  -->
+
+    Fala pra mim amigo qual das marcas de TV você procurou?
+
+    <select id="select_tv">
+        <option value="1">Samsung</option>
+        <option value="2">LG</option>
+        <option value="3">Mondial</option>
+        <option value="4">Britânia</option>
+    </select><br>
+    Informa o preço da tv:
+    <input type="text" id="input_preco"><br>
+    <button onclick="analisarCompra()">Analisar compra</button><br>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function analisarCompra(){
+        var modeloTv =  Number(select_tv.value);
+        var precoTv = Number(input_preco.value);
+
+        // "TV fora da faixa de preço", caso a TV custar menos que 800 ou mais que 2000
+        if(precoTv < 800 || precoTv > 2000){
+            div_mensagem.innerHTML = "TV fora da faixa de preço <br>";
+            // caso custar menos de 800: "Preço baixo demais!". 
+            // Ou, caso custar mais de 2000, exiba esta: "TV cara demais, infelizmente" 
+            if(precoTv < 800){
+                div_mensagem.innerHTML += "Preço baixo demais!";
+            }else{
+                div_mensagem.innerHTML += "TV cara demais, infelizmente";
+            }
+        }else{
+            // "Na faixa de preço, porém marca não confiável", 
+            // caso esteja na faixa entre 800 e 2000, porém for da "Mondial" ou "Britânia" 
+            if(modeloTv == 3 || modeloTv == 4){
+                div_mensagem.innerHTML = "Na faixa de preço, porém marca não confiável";
+            }else if(modeloTv == 2 || modeloTv == 1){
+            // Caso a TV esteja na faixa de preço e for da "LG" ou "Samsung", exiba "Essa TV pode entrar na sua lista!"
+                div_mensagem.innerHTML = "Essa TV pode entrar na sua lista!";
+            }
+        }
+    }
+
+</script>

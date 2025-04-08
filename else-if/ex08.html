@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 8. Meta de Economia: Você Está no Caminho Certo?
+    Crie um programa o qual: 
+
+    a) Pergunte ao usuário qual sua meta de economia; 
+
+    b) Pergunte ao usuário quanto tem guardado; 
+
+    c) Ao clicar em "Analisar economia"... 
+
+    d) Caso a meta tenha sido alcançada, exibir, abaixo do botão, a frase “Parabéns, meta alcançada!”.  
+
+    e) Caso a meta tenha sido ultrapassada, exibir a frase anterior e também a frase “Meta ultrapassada em X” (onde X é a diferença entre a economia e a meta) 
+
+    f) Caso a meta ainda não tenha sido alcançada, exibir, abaixo do botão, a frase “Força! Ainda em busca da meta! Falta X” (onde X é a diferença entre a meta e a economia)  -->
+
+    Informe a meta de economia:
+    <input type="text" id="input_meta"><br>
+    Informe quanto você tem guardado?
+    <input type="text" id="input_dinheiroGuardado"><br>
+    <button onclick="analisar()">Analisar economia</button><br>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    
+    function analisar(){
+        var meta = Number(input_meta.value);
+        var guardado = Number(input_dinheiroGuardado.value);
+        var ultrapassada = guardado - meta;
+        var faltando = meta - guardado;
+
+        if(guardado == meta){
+            div_mensagem.innerHTML = "Parabéns, meta alcançada!"
+        }else if(guardado > meta){
+            div_mensagem.innerHTML = `Meta ultrapassada em R$${ultrapassada}`
+        }else{
+            div_mensagem.innerHTML = `Força! Ainda em busca da meta! Falta R$${faltando}`
+        }
+
+    }
+
+</script>

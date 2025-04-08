@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Valor lógico: true e false <-- booleano -->
+
+    <input type="text" id="input_saldo">
+    <button onclick="analisar()">Analisar Saldo</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function analisar(){
+
+        var saldo = Number(input_saldo.value);
+
+
+        if(saldo < 1000 ){
+            div_mensagem.innerHTML = "Busque renda extra";
+        }else if(saldo <= 2000){
+            div_mensagem.innerHTML = "Em torno de 1 salario minimo";
+        }else{
+            div_mensagem.innerHTML = "Mais de 1 salario minimo";
+        }
+
+
+        
+        if(saldo < 1000 ){
+            div_mensagem.innerHTML = "Busque renda extra";
+        }
+        if(saldo >= 1000 && saldo <= 2000){
+            div_mensagem.innerHTML = "Em torno de 1 salario minimo";
+        }if (saldo > 2000){
+            div_mensagem.innerHTML = "Mais de 1 salario minimo";
+        }
+    }
+    
+</script>

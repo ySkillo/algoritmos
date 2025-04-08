@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Crie um minissistema de recarga do "cartão fidelidade" do metrô de São Paulo em que:  
+
+    a) Solicite ao usuário que informe a quantidade de passagens que deseja adquirir  
+
+    b) Ao clicar em "Comprar", caso a quantidade seja entre 8 e 50, implemente as regras entre os itens c), d) e e). Caso contrário, exiba apenas o alert "Quantidade inválida para o Fidelidade!"  
+
+    c) Caso a quantidade for entre 8 e 19, aplique um desconto de 3% no valor da passagem de metrô  
+
+    d) Caso a quantidade for entre 20 e 49, aplique um desconto de 5% no valor da passagem de metrô  
+
+    e) Caso a quantidade for 50, aplique um desconto de 7% no valor da passagem de metrô  
+
+    f) Considere que o valor da passagem é R$4,40  
+
+    g) Caso a quantidade de passagens veja válida, conforme a regra em b), exiba o valor total a pagar numa frase abaixo do botão "Comprar";  
+
+    Ex: 50 passagens devem exibir "Total a pagar: R$204.60"  -->
+
+
+    Informe quantidade de passagem:
+    <input type="text" id="input_passagem"><br>
+    <button onclick="efetuarCompra()">Comprar</button><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    function efetuarCompra() {
+        var passagem = Number(input_passagem.value);
+
+        if (passagem >= 8 && passagem <= 50) {
+
+            passagem *= 4.40;
+
+            if (passagem >= 8 && passagem <= 19) {
+                passagem -= (passagem * 0.03);
+                div_mensagem.innerHTML += `Total a pagar: R$${passagem}`;
+            } else if (passagem >= 20 && passagem <= 49) {
+                passagem -= (passagem * 0.05);
+                div_mensagem.innerHTML += `Total a pagar: R$${passagem}`;
+            } else {
+                passagem -= (passagem * 0.07);
+                div_mensagem.innerHTML += `Total a pagar: R$${passagem}`;
+            }
+        } else {
+            alert("Quantidade inválida para o Fidelidade!");
+        }
+
+    }
+
+
+</script>

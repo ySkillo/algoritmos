@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Crie um programa que simula um pequeno sistema de login assim:  
+
+    a) Pergunte o login do usuário; 
+    b) Pergunte a senha do usuário; 
+    
+    c) Pergunte o código de segurança do usuário (é como se fosse uma segunda senha, só isso)  
+    
+    d) Ao clicar em "Entrar": 
+    
+       Caso o login seja "SPTech" e a senha seja "digital" e o código de segurança seja "123", exibir um alert com a frase "Usuário autenticado com sucesso" 
+    
+       Caso contrário, exibir um alert com "Falha na autenticação"   -->
+
+    Informe o login:
+    <input type="text" id="input_login"><br>
+    Infirme a senha:
+    <input type="text" id="input_senha"><br>
+    informe o código de segurança:
+    <input type="text" id="input_codigo">
+    <button onclick="analisarConta()">Entrar</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisarConta() {
+        var login = input_login.value;
+        var senha = input_senha.value;
+        var codigo = input_codigo.value;
+
+        if (login == "SPtech" && senha == "digital" && codigo == "123") {
+            alert("Usuário autenticado com sucesso")
+        } else {
+            alert("Falha na autenticação")
+        }
+
+    }
+
+</script>

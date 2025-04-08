@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Uma nutricionista precisa ajudar seus pacientes em com suas dietas. Ajude-a criando um programa o qual: 
+
+    a) Pergunte quantos pães franceses o usuário tem comido por dia; 
+
+    b) Pergunte quantos pacotes de bolacha recheada o usuário tem comido por dia; 
+
+    c) Pergunte quantos copos de achocolatado o usuário tem tomado por dia; 
+
+    d) Ao clicar em "Verificar calorias", calcule quantas calorias o usuário tem consumido com base nas 3 informações. Considere que um pão francês tem 50 calorias, um pacote de bolacha, 80 e um copo de achocolatado, 70. 
+
+    e) Após fazer o cálculo, exiba uma dessas frases, abaixo do botão: 
+
+       "Parabéns, vai ficar em forma!", caso as calorias sejam menores do que 200. 
+
+       "Cuidado, vai ficar menos saudável !" caso as calorias sejam entre 200 e 400. 
+
+       "Alerta crítico de saúde !!!", caso as calorias sejam mais de 400.  -->
+
+
+    Informe a quantidade de pães:
+    <input type="text" id="input_qntPao"><br>
+    Informe a quantidade de bolacha:
+    <input type="text" id="input_qntPacotes"><br>
+    Informe a quantidade de copos de achocolatado:
+    <input type="text" id="input_qntAchocolatado"><br>
+    <button>Verificar calorias</button><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function analiseCalorias(){
+        var qntPao = Number(input_qntPao.value);
+        var qntPacotes = Number(input_qntPacotes.value);
+        var qntAchocolatado = Number(input_qntAchocolatado.value);
+
+        // uma das formas que pode ser feito os calculos
+        // var caloriaPao = qntPao * 50;
+        // var caloriaBolacha = qntPacotes * 80;
+        // var caloriaAchocolatado = qntAchocolatado * 70;
+        //outra forma de fazer diminuindo as variaveis var total = (qntPao * 50) + (qntPacotes * 80) + (qntAchocolatado * 70);
+        //2º forma de fazer os calculos var total = caloriaPao + caloriaBolacha + caloriaAchocolatado;
+
+        //Forma que gosto de fazer:
+        var caloriaPao = 50;
+        var caloriaBolacha = 80;
+        var caloriaAchocolatado = 70;
+
+        var calorias = (qntPao * caloriaPao) + (qntPacotes * caloriaBolacha) + (qntAchocolatado * caloriaAchocolatado);
+    
+        if(caloria < 200){ div_mensagem.innerHTML += "Parabéns, vai ficar em forma!" }
+        else if(caloria <= 400){ div_mensagem.innerHTML += "Cuidado, vai ficar menos saudável!" }
+        else { div_mensagem.innerHTML += "Alerta crítico de saúde !!!" }
+    }
+
+</script>

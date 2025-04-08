@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um pequeno simulador de preço de passagem de Bilhete Único de São Paulo num programa, o qual: 
+
+    a) Tenha uma combo para indicar o tipo de passageiro, com os itens 
+
+                Comum 
+                Estudante 
+                Idoso/PNE 
+
+    b) Tenha uma outra combo, para indicar o tipo de passagem, com os itens 
+
+                Passagem única 
+                Passagem integração 
+
+    c) Ao clicar num botão "Simular preço", considere que o preço unitário de uma passagem única é R$4,40 e que a integração é R$5,90 para fazer os cálculos necessários para exibir uma frase como esta: 
+
+                Valor da passagem escolhida: R$X,XX 
+
+    d) Considere ainda que um estudante tem 50% de desconto e idoso/PNE possuem gratuidade em qualquer tipo de passagem  -->
+
+    Tipos de passageiros:
+    <select id="s_passageiro">
+        <option value="c">Comum</option>
+        <option value="e">Estudante</option>
+        <option value="i">Idoso/PNE</option>
+    </select><br>
+    Tipo de passagem:
+    <select id="s_passagem">
+        <option value="u">Passagem única</option>
+        <option value="t">Passagem integração</option>
+    </select><br>
+    <button onclick="fazerAnalise()">Simular preço</button>
+    
+    <div id="mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function fazerAnalise(){
+        var passageiro = s_passageiro.value;
+        var passagem = s_passagem.value;
+        var unica = 4.40;
+        var integracao = 5.90;
+
+        if(passagem == "u" && (passageiro == "c" || passageiro == "e" || passageiro == "i")){
+            if(passageiro == "e"){
+                unica -= (unica * 0.50);
+                mensagem.innerHTML = `Valor da passagem escolhida: R$${unica} `
+            }else if(passageiro == "c"){
+                mensagem.innerHTML = `Valor da passagem escolhida: R$${unica} `
+            }else{
+                unica = 0;
+                mensagem.innerHTML = `Valor da passagem escolhida: R$${unica} `                
+            }
+        }else if(passagem == "t" && (passageiro == "c" || passageiro == "e" || passageiro == "i")){
+            if(passageiro == "e"){
+                integracao -= (integracao * 0.50);
+                mensagem.innerHTML = `Valor da passagem escolhida: R$${integracao} `
+            }else if(passageiro == "c"){
+                mensagem.innerHTML = `Valor da passagem escolhida: R$${integracao} `
+            }else{
+                integracao = 0;
+                mensagem.innerHTML = `Valor da passagem escolhida: R$${integracao} `                
+            }
+        }
+        
+    }
+
+</script>

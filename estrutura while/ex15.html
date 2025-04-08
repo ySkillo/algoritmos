@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- No filme clássico "Ghost, do outra lado da vida", o protagonista, para atazanar a vida da médium canta a seguinte canção...   
+
+    1 elefante incomoda muita gente!   
+
+    2 elefantes, incomodam, incomodam, muito mais!   
+
+    1 elefante incomoda muita gente!   
+
+    3 elefantes, incomodam, incomodam, incomodam, muito mais!   
+
+    1 elefante incomoda muita gente!   
+
+    4 elefantes, incomodam, incomodam, incomodam, incomodam, muito mais!   
+
+    ... e assim por diante   
+
+Crie um programa o qual:   
+
+a) Solicite ao usuário a quantidade elefantes;  
+
+b) Ao clicar em "Atazanar a médium", exiba sempre o trecho da canção de 1 elefante,
+ seguido do trecho com 2 elefantes e depois 3... até a quantidade de elefantes indicado em
+  a). Note que a palavra "incomodam" repete-se conforme essa mesma quantidade.   
+
+Por exemplo, o se o usuário informar 4 em a), devem aparecer 3 estrofes, como no enunciado 
+da questão, de "2 elefantes" até "4 elefantes", sempre repetindo a frase do 
+"1 elefante incomoda muita gente" antes de cada estrofe.  -->
+
+    informe a quantidade de elefantes:
+    <input type="number" id="input_qnt"><br>
+    <button onclick="elefatinhoChato()">Atazanar a médium</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    function elefatinhoChato(){
+        var num = Number(input_qnt.value);
+        var mensagem = ``;
+        var contador = 2;
+        var text = `<br>1 elefante incomoda muita gente`
+        var fraseR = ` incomodam,`;
+
+        div_mensagem.innerHTML = mensagem;
+
+        if(num <= 0){
+            alert("nenhum elefante incomodando")
+        }else if(num == 1){
+            alert("1 elefante incomoda muita gente")
+        }else{
+            while(contador <= num){
+                fraseR += ` incomodam,`
+                
+                mensagem += `<br>${text}<br>${contador} elefantes${fraseR} muita gente`
+                contador++;
+                
+            }
+        }
+        
+        div_mensagem.innerHTML += `${mensagem}`;
+    }
+
+</script>

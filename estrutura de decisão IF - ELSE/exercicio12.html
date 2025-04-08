@@ -7,22 +7,32 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!-- 12. Crie um programa o qual:  
+
+    a) Solicite o peso total num elevador  
+
+    b) Ao clicar num botão "Ligar elevador"...  
+
+    c) Caso o peso seja menor que 500, exiba um alert com a frase "Elevador vai se mover"  
+
+    d) Caso o peso seja a partir de 500, exiba um alert com "Alguém precisa descer do elevador"   -->
+
+
     <div class="box">
         <h1>PROGRAMA</h1>
         
-        <label for="">Email</label>
-        <input type="text" placeholder="Informe...">
-        <label for="">Senha</label>
-        <input type="text">
+        <label for="">Qual peso total</label>
+        <input type="text" placeholder="Informe o peso total no elevador..." id="input_peso">
 
         <div class="box-buttons">
-            <button>Inicio</button>
+            <button onclick="checkElevador()">Ligar elevador</button>
             <button onclick= "limpar()">Limpar</button>
         </div>
 
     </div>    
 
-    <div class="box">
+    <!-- <div class="box">
         <h1>NOTIFICAÇÃO</h1>
         
         <div>
@@ -30,16 +40,29 @@
                 <p id="p_mensagem"></p>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
 
 
  <script>
 
-    function limpar(){
-        p_mensagem.innerHTML = " ";
+    function checkElevador(){
+        var peso = Number(input_peso.value);
+
+        if(peso < 500){
+            alert(`Elevador vai mover peso atual: ${peso}`);
+
+        } else{
+            alert(`Alguém precisa descer do elevador peso atual: ${peso}`);
+        }
+
+
     }
+
+    // function limpar(){
+    //     p_mensagem.innerHTML = " ";
+    // }
 
 
  </script>

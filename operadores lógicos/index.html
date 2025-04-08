@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Parque de diversão</h1><br>
+    informe o nome:
+    <input type="text" id="input_nome"><br>
+    informe a sua altura:
+    <input type="text" id="input_altura"><br>
+    informe a sua idade:
+    <input type="text" id="input_idade"><br>
+    informe se está acompanhado:
+    <input type="text" id="input_acompanhante"><br>
+
+    <button onclick="verificarEntrada()">Enviar</button>
+
+    <div id="mensagem"></div>
+
+</body>
+</html>
+
+
+<script>
+
+    function verificarEntrada(){
+        var nome = input_nome.value;
+        var altura = Number(input_altura.value);
+        var idade =  Number(input_idade.value);
+        var acompanhante = input_acompanhante.value;
+
+
+        // V1
+        /* if( altura >= 1.50 && idade >= 18){
+            mensagem.innerHTML = "Pode entrar";
+        }else if(altura >= 1.50 && acompanhante == "sim"){
+            mensagem.innerHTML = "Pode entrar";
+        }else{
+            mensagem.innerHTML = "não pode entrar";
+        } */
+
+        // V2
+        /*if((altura >= 1.50 && idade >= 18) || 
+        (altura >= 1.50 && acompanhante == "sim")){
+            mensagem.innerHTML = "Pode entrar";
+        }else{
+            mensagem.innerHTML = "não pode entrar";
+        } */
+
+        // V3
+        if(
+            altura >= 1.50 && 
+            (idade >= 18 || acompanhante == "sim")
+        ){
+            mensagem.innerHTML = "Pode entrar";
+        }else{
+            mensagem.innerHTML = "não pode entrar";
+        }
+
+    }
+
+</script>

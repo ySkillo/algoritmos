@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um programa que avalie a possibilidade de um pagamento da compra ser parcelado ou não. 
+
+    a) Pergunte o modo de pagamento dentre as seguintes opções: 
+
+        Dinheiro  
+
+        Cartão de débito  
+
+        Cartão de crédito  
+
+        Boleto 
+
+    b) Ao clicar num botão "Analisar compra", exiba uma dessa mensagens: 
+
+       "Você terá que pagar a vista", somente se o pagamento for dinheiro ou débito  
+
+       "Pagamento poderá ser parcelado", se o pagamento for crédito ou boleto  -->
+
+
+    <select id="select_pagamento">
+        <option id="1">Dinheiro</option>
+        <option id="2">Cartão de débito</option>
+        <option id="3">Cartão de crédito</option>
+        <option id="4">Boleto</option>
+    </select><br>
+
+    <button>Analisar Compra</button><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    function analisarCompra(){
+        var op = Number(select_pagamento.value);
+
+        if(op == 1 || op == 2){
+            div_mensagem.innerHTML = "Você terá que pagar a vista";
+        }else{
+            div_mensagem.innerHTML =  "Pagamento poderá ser parcelado";
+        }
+    }
+
+</script>

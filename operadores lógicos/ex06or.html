@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Crie um programa o qual: 
+
+        a) Tenha o seguinte texto no topo: 
+
+            "Calculadora de cansaço do aluno SPTech" 
+
+        b) Tenha o texto "Meio de transporte" e uma input para o usuário inserir o meio de transporte dele, podendo ser: 
+
+            Ônibus 
+
+            Metrô 
+
+            Carro 
+
+            Bicicleta 
+
+            Uber 
+
+        c) Tenha o botão "Calcular cansaço" que ao clicar mostrar em um alerta o nível de cansaço do usuário. 
+
+        d) Se o meio de transporte escolhido for "Carro" OU "Uber", exiba em um alert: "Tá tranquilo..." 
+
+        e) Se o meio de transporte escolhido for "Metrô" OU "Ônibus", exiba em um alert: "Um pouco cansado". 
+
+        f) Se o meio de transporte escolhido for "Bicicleta", exiba em um alert: "Vish... vive cansado."
+    -->
+
+    <h1>Calculadora de cansaço do aluno SPTech</h1>
+    Meio de transporte: (Ônibus, Metrô, Carro, Bicicleta, Uber)
+    <br>
+    <input type="text" id="input_transporte"><br>
+    <button onclick="analisarCansaco()">Calcular cansaço</button>
+
+</body>
+</html>
+
+<script>
+
+    function analisarCansaco(){
+        var transporte = input_transporte.value;
+        
+        if(transporte == "Carro" || transporte == "Uber"){
+            alert("Tá tranquilo...");
+        }else if(transporte == "Metrô" || transporte == "Ônibus"){
+            alert("Um pouco cansado");
+        }else if(transporte == "Bicicleta"){
+            alert("Vish... vive cansado.");
+        }
+                
+    }
+
+</script>

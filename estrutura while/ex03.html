@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Refaça o programa anterior de tal forma que, antes de cada frase apareça um contador. Ex: Se a frase digitada foi “Boa Tarde” a página ficará assim:   
+
+   1. Boa tarde   
+
+   2. Boa tarde   
+
+   ...   
+
+   7. Boa tarde   -->
+   <input type="text" id="input_frase">
+   <button onclick="iniciarContador()">Iniciar</button>
+   <div id="mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function iniciarContador(){
+        var contador = 1;
+        var frase = input_frase.value;
+
+        mensagem.innerHTML = "";
+
+
+        while(contador <= 7){
+            mensagem.innerHTML += `<br>${contador}. ${frase}`
+            contador++
+        }
+
+    }
+</script>

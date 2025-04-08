@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- a) Pergunte o nome da pessoa que o usuário mais ama na vida;  
+
+    b) Pergunte o quanto o usuário a ama (um número inteiro);  
+
+    c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")   
+
+      1 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+      2 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+      3 - Lady Gaga, eu te amo! Sempre lembre disso!    -->
+
+
+      Informe o nome da pessoa que você mais ama:
+      <input type="text" id="input_amor"><br>
+      Informe o quanto você ama: 
+      <input type="text" id="input_qnt"><br>
+      <button onclick="euteAmo()">Expressar amor</button><br>
+        <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function euteAmo(){
+        var nome = input_amor.value;
+        var qnt = Number(input_qnt.value);
+        var mensagem = ``;
+        var contador = 1;
+
+        div_mensagem.innerHTML = mensagem;
+        while(contador <= qnt){
+            mensagem += `<br>${nome}, eu te amo! Sempre lembre disso!`
+            contador++;
+        }
+        div_mensagem.innerHTML = `${mensagem}`
+
+    }
+    
+</script>

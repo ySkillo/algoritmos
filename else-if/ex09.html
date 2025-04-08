@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 9. Crie um programa que avalie a saúde do usuário com base no Índice de Massa Corporal (IMC).
+
+    a) Solicite o peso (kg) e a altura (m) do usuário.
+    b) Calcule o IMC usando a fórmula:
+
+    Dica: O IMC deve ser calculado com base no peso dividido pela altura ao quadrado.
+
+    c) Ao clicar em "Calcular IMC", exiba a classificação correspondente:
+
+    Abaixo do peso (IMC < 18.5)
+    Peso normal (IMC entre 18.5 e 24.9)
+    Acima do peso (IMC entre 25 e 29.9)
+    Cuidado, risco de obesidade (IMC acima de 29.9) -->
+
+
+    Informe o peso (kg):
+    <input type="text" id="input_peso"> 
+    <br>
+    Informe a altura (m):
+    <input type="text" id="input_altura">
+    <br>
+    <button onclick="fazerCalculo()">Calcular IMC</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function fazerCalculo(){
+        var peso = Number(input_peso.value);
+        var altura = Number(input_altura.value);
+        altura = altura * altura;
+        var imc = peso / altura;
+
+        if(imc < 18.5 ){
+            div_mensagem.innerHTML = "Abaixo do Peso"
+        }else if(imc <= 24.9){
+            div_mensagem.innerHTML = "Peso Normal"
+        }else if(imc <= 29.9){
+            div_mensagem.innerHTML = "Acima do peso"
+        }else{
+            div_mensagem.innerHTML = "Cuidado, risco de obesidade"
+        }
+    }
+
+</script>

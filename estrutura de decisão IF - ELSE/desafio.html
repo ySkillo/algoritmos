@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Informe a quantidade de carros:
+    <input type="text" id="input_qntCarros">
+    <br>
+    Informe a quantidade de litros que irá em cada carro:
+    <br>
+    <input type="text" id="input_litros"><br><br>
+
+    <button onclick="abastecerVeiculo()">abastecer</button>
+
+    <div id="div_abastecendoCarros"></div>
+</body>
+</html>
+
+<script>
+
+    var bombaDeGasolina = 100;
+
+    function abastecerVeiculo(){
+        var carros = Number(input_qntCarros.value);
+        var litros = Number(input_litros.value);
+        var saldo = litros * 6.45;
+        var gasolinaLitros = carros * litros;
+        bombaDeGasolina -= gasolinaLitros;
+
+        if(bombaDeGasolina > litros){
+            div_abastecendoCarros.innerHTML += `<br>Abastecendo carros... bomba de gasolina ficará em <b style="color: green">${bombaDeGasolina}
+            </b><br> valor a ser pago por cada carro: R$${saldo}<br>`;
+        }else {
+            if(bombaDeGasolina < litros){
+                div_abastecendoCarros.innerHTML += `<br>A gasolina da bomba acabou / ou talvez não seja suficiente para os proximos carros
+                <b style="color: red">${bombaDeGasolina}L</b>, solicite que encha a bomba!<br> <button onclick="abastecer()">Abastecer bomba</button><br>`;
+            }
+        }
+    }
+
+    function abastecer(){
+        bombaDeGasolina += 20;
+        div_abastecendoCarros.innerHTML += `abastecendo bomba... litros inseridos: ${bombaDeGasolina}<br>`;
+
+        if(bombaDeGasolina >= 100){
+            div_abastecendoCarros.innerHTML = "";
+            div_abastecendoCarros.innerHTML = "bomba abastecida!"
+        }
+
+    }
+
+    
+
+
+
+
+</script>

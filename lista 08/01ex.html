@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um pequeno sistema de avaliação de atendimento, o qual: 
+
+    a) Pergunte a nota para o atendimento 
+
+    b) Ao clicar num botão "Avaliar atendimento", pode uma dessas frases abaixo do botão: 
+
+    b.1) "Nota inválida", caso a nota não esteja entre 0 e 10 
+
+    b.2) "Não aprovado", caso a nota for entre 0 e menor que 5 
+
+    b.3) "Neutro", caso a nota for entre 5 e 6 
+
+    b.4) "Aprovado", caso a nota for mais que 6  -->
+
+    Informe a nota de atendimento:
+    <input type="text" id="input_nota"><br>
+    <button onclick="fazerAnalise()">Avaliar atendimento</button><br>
+    <div id="mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function fazerAnalise(){
+        var nota = Number(input_nota.value);
+
+        if(nota >= 0 && nota <= 10){
+            if(nota < 5){
+                mensagem.innerHTML = "Não aprovado"
+            }else if(nota <= 6){
+                mensagem.innerHTML = "Neutro"
+            }else{
+                mensagem.innerHTML = "Aprovado"
+            }
+        }else{
+            mensagem.innerHTML = "Nota inválida"
+        }
+    }
+
+</script>

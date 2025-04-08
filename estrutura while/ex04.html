@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Crie um programa o qual:
+ 
+    a) Ao clicar num botão "S2 Pares"...  
+
+    b) Exiba, debaixo do botão, todos os números pares de 0 a 100, um embaixo do outro    -->
+
+    
+    <button onclick="iniciarContagem()">S2 pares</button>
+        
+    <div id="mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function iniciarContagem(){
+        var num = 0;
+        var contador = 0;
+        
+        mensagem.innerHTML = "";
+
+        while(num <= 100){
+
+            if(num % 2 == 0){
+                mensagem.innerHTML += `<br>${num}`
+            }
+
+            contador += contador;
+
+            num++
+        }
+    }
+
+</script>

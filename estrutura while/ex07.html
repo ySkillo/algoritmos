@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Crie um programa o qual:
+ 
+    a) Receba um número (tem que estar entre 0 e 200);  
+
+    b) Ter um botão chamado "Viva o 7!"   
+
+    c) Ao clicar nesse botão, devem aparecer todos os múltiplos de 7 entre 0 e o número informado em a)    -->
+
+
+    informe um numero entre 0 e 200:
+    <input type="text" id="input_num"><br>
+        <button onclick="fazerVerificacao()">Viva o 7!</button><br>
+        <div id="div_mensagem"></div>
+
+    
+</body>
+</html>
+
+
+<script>
+
+    function fazerVerificacao(){
+        var num = Number(input_num.value);  
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        if(num >= 0 && num <= 200){
+            var contador = 0;
+            while(contador <= num){
+                if(contador % 7 == 0){
+                    mensagem += `<br>${contador}`;
+                }
+                
+                contador ++;
+            }
+        }
+
+
+        div_mensagem.innerHTML += `${mensagem}`;
+        
+    }
+
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de decisão</title>
+</head>
+
+<body>
+    <h1>Calcular corridas</h1>
+    <b>Informe o nome do passageiro:</b>
+    <input type="text" id="input_nomePassageiro"><br><br>
+    <b>Infome a quantidade de (KM):</b>
+    <input type="text" id="input_kmDestino"><br><br>
+    <b>Informe a bandeira sendo ela(1, 2 ou 3):</b>
+    <input type="number" id="input_bandeira"><br><br>
+    <b>Informe o horario da Corrida (números inteiros 0 à 23):</b>
+    <input type="number" id="input_horas"><br><br>
+    <button onclick="analisarCorrida()">Calcular corrida</button><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    function analisarCorrida() {
+        var nomePassageiro = input_nomePassageiro.value;
+        var qntKm = Number(input_kmDestino.value);
+        var bandeira = Number(input_bandeira.value);
+        var horaCorrida = Number(input_horas.value);
+        var valor_km = qntKm * 1.25;
+
+        if (bandeira < 1) {
+            div_mensagem.innerHTML = `Erro ao verificar bandeira! numero diferente de (1, 2 ou 3)`
+        } else if (bandeira > 3) {
+            div_mensagem.innerHTML = `Erro ao verificar bandeira! numero diferente de (1, 2 ou 3)`
+        }else if (horaCorrida < 0) {
+            div_mensagem.innerHTML = `sua bandeira: ${bandeira} Informe uma hora entre (0 e 23) o número inserido ${horaCorrida} não é válido.`
+        } else if (horaCorrida > 23) {
+            div_mensagem.innerHTML = `sua bandeira: ${bandeira} Informe uma hora entre (0 e 23) o número inserido ${horaCorrida} não é válido.`
+        } else {
+            if (bandeira == 1) {
+                if (horaCorrida <= 6) {
+                    valor_km += (valor_km * 0.5);
+                }else if (horaCorrida <= 12) {
+                    valor_km += (valor_km * 0.10);
+                }else if (horaCorrida <= 23) {
+                    valor_km += (valor_km * 0.15);
+                }
+            } else if (bandeira == 2) {
+                if (horaCorrida <= 6) {
+                    valor_km += (valor_km * 0.10);
+                }else if (horaCorrida <= 12) {
+                    valor_km += (valor_km * 0.20);
+                }else if (horaCorrida <= 23) {
+                    valor_km += (valor_km * 0.30);
+                }
+            } else if (bandeira == 3) {
+                if (horaCorrida <= 6) {
+                    valor_km += (valor_km * 0.15);
+                }else if (horaCorrida <= 12) {
+                    valor_km += (valor_km * 0.30);
+                }else if (horaCorrida <= 23) {
+                    valor_km += (valor_km * 0.45);
+                }
+            }
+            div_mensagem.innerHTML = `<br> Olá ${nomePassageiro} Sua corrida, será na bandeira ${bandeira}, percorrerá ${qntKm} km e o total da corrida será de ${valor_km}`;
+        }
+
+
+
+    }
+
+</script>

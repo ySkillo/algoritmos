@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- (Desafio). Vamos melhorar o exercício anterior. Crie um programa o qual: 
+
+    a) Tenha o seguinte texto no topo: 
+
+        "Calculadora de cansaço aprimorada do aluno SPTech" 
+
+    b) Tenha o texto "Meio de transporte" e uma input para o usuário inserir o meio de transporte dele, podendo ser: 
+
+        Ônibus. 
+
+        Metrô. 
+
+        Carro. 
+
+        Bicicleta. 
+
+    c) Tenha um input de texto para o usuário digitar a distância da casa dele até a faculdade, com o texto "Distância da faculdade (KM)" ao lado. 
+
+    d) Tenha o botão "Calcular cansaço" que ao clicar mostrar em um alerta o nível de cansaço do usuário. 
+
+    e) Se a distância da faculdade for de ATÉ 10 KM: 
+
+        SE o meio de transporte for "Carro" OU "Metrô" OU "Ônibus" exiba um alert com a frase ("Tá tranks..."). 
+
+        SENÃO exiba um alert com a frase ("É... um pouco cansado..."). 
+
+    f) Se a distância da faculdade for MAIOR que 10 KM: 
+
+        SE o meio de transporte for "Carro" exiba um alert com a frase ("É... um pouco cansado..."); 
+
+        SE o meio de transporte for "Metrô" OU "Ônibus" exiba um alert com a frase ("Bem cansado..."). 
+
+        SE o meio de transporte for "Bicicleta" exiba um alert com a frase ("Vish... tá só o pó...").  -->
+
+
+    <h1>Calculadora de cansaço do aluno SPTech</h1>
+    Meio de transporte: (Ônibus, Metrô, Carro, Bicicleta)
+    <br>
+    <input type="text" id="input_transporte"><br>
+    <input type="text" id="input_distancia">Distância da faculdade (KM)<br>
+    <button onclick="analisarCansaco()">Calcular cansaço</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisarCansaco() {
+        var transporte = input_transporte.value;
+        var distancia = Number(input_distancia.value);
+        if(distancia <= 10){
+        if(transporte == "" || transporte == "Metrô" || transporte == "Ônibus"){
+            //SE o meio de transporte for "Carro" OU "Metrô" OU "Ônibus" exiba um alert com a frase ("Tá tranks..."). 
+                alert("Tá tranks...");
+            }else{
+                //SENÃO exiba um alert com a frase ("É... um pouco cansado..."). 
+                alert("É... um pouco cansado...");
+            }
+        }else{
+            if(transporte == "Carro"){
+                //SE o meio de transporte for "Carro" exiba um alert com a frase ("É... um pouco cansado..."); 
+                alert("É... um pouco cansado...");
+            }else if(transporte == "Metrô"){
+                // SE o meio de transporte for "Metrô" OU "Ônibus" exiba um alert com a frase ("Bem cansado..."). 
+                alert("Bem cansado...");
+            }else if(transporte == "Bicicleta"){
+                // SE o meio de transporte for "Bicicleta" exiba um alert com a frase ("Vish... tá só o pó...").  
+                alert("Vish... tá só o pó...");
+            }
+
+
+        }
+
+    }

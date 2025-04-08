@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um programa o qual:
+ 
+a) Ao clicar num botão "Contar"...   
+
+b) Exiba, debaixo do botão, os números de 1 a 15, um embaixo do outro.  -->
+
+    <button onclick="fazerConta()">Contar</button>
+    <div id="mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    function fazerConta(){
+        var num = 1;
+
+        mensagem.innerHTML = "";
+
+
+        while(num <= 15){
+            mensagem.innerHTML += `${num}<br>`
+            num++
+        }
+        
+    }
+
+</script>

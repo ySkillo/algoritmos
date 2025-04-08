@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- No processo seletivo da faculdade Mentes Brilhantes, o aluno é aprovado se sua nota no ENEM foi a partir de 800 ou se ele fizer o vestibular interno e tirar pelo menos 700. Crie um programa que será usado por essa instituição. 
+
+a) Solicite a nota do ENEM do aluno 
+
+b) Solicite a nota do vestibular interno do aluno 
+
+c) Ao clicar em "Avaliação", deve ser exibido um alert com o texto "Parabéns! Aprovado", caso suas notas, segundo as regras, o aprovem 
+
+d) Caso contrário, exiba um alert com a frase "Tente semestre que vem!"  -->
+
+
+    informe a nota do enem:
+    <input type="text" id="input_nota"><br>
+    informe a nota do vestibular:
+    <input type="text" id="input_notaVestibular"><br>
+    <button onclick="fazerAnalise()">Avaliação</button>
+
+</body>
+</html>
+
+
+<script>
+
+    function fazerAnalise(){
+        var notaEnem = Number(input_nota.value);
+        var notaVestibular = Number(input_notaVestibular.value);
+
+        if(nota >= 800 || notaVestibular >= 700 ){
+            alert("Parabéns! Aprovado")
+        }else{
+            alert("Tente semestre que vem!")
+        }
+    }
+
+</script>

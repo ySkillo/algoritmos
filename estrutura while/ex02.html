@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um programa o qual: 
+ 
+a) Tenha um botão "Diga algo sobre a matéria de Algoritmos";  
+
+b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra.   -->
+
+    <button onclick="fazerAcao()">Diga algo sobre a matéria de Algoritmos</button><br>
+    <div id="mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    function fazerAcao(){
+        
+        var num = 1;
+
+        mensagem.innerHTML = "";
+
+        while(num <= 7){
+            mensagem.innerHTML += "MUITO MANEIRA<br>"
+            num++
+        }
+        
+    }
+
+</script>
