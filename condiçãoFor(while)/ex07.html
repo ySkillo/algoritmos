@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número entre (0 e 200):
+    <input type="number" id="input_numero"><br>
+    <button onclick="multiploSete()">Viva o 7!</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function multiploSete(){
+        var num = Number(input_numero.value);
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        if(num < 0 || num > 200){
+            alert("numero não está entre 0 e 200")
+        }else{
+            for(var contador = 1; contador <= num; contador++){
+                if(contador % 7 == 0){
+                    mensagem += `${contador}<br>`
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+</script>

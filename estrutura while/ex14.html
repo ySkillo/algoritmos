@@ -35,14 +35,32 @@
     quantos dia você faz musculação?
     <input type="number" id="input_number"><br>
     <button onclick="analisar()">Exibir rotina mensal</button>
-
+    <div id="mensagem_div"></div>
 </body>
 </html>
 
 <script> 
 
     function analisar(){
+        var treino = Number(input_number.value);
+        var contador = 1;
+        var mensagem = ``;
+        var resto = 1;
         
+        if(dias == 1){
+            resto = 0;
+        }
+
+        while(contador <= 30){  
+            if(contador % treino == resto){
+                mensagem += `<br>Dia ${contador} - Musculação`   
+            }else{
+                mensagem += `<br>Dia ${contador} - Comer, dormir etc ` 
+            }
+            contador ++;
+        };
+
+        mensagem_div.innerHTML += `${mensagem}`;
     }
 
 </script>

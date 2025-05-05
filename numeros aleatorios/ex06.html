@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="analisar()">
+        Sortear momento do dia
+    </button>
+    <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function analisar () {
+        var aleatorio = Math.random()
+        var aleatoria_ate_23 = parseInt(aleatorio * 24 + 0)
+        var mensagem = ``
+
+
+        if (aleatoria_ate_23 <= 11 && aleatoria_ate_23 >= 0) {
+            mensagem = `Bom dia, flor do dia, são ${aleatoria_ate_23}h`
+        } else if (aleatoria_ate_23 <= 17 && aleatoria_ate_23 >= 12) {
+            mensagem = `Boa tarde, já vai tarde! São ${aleatoria_ate_23}h`
+        } else {
+            mensagem = `Boa noite, durma bem! São ${aleatoria_ate_23}h`
+        }
+
+        div_mensagem.innerHTML = mensagem
+
+    }
+</script>

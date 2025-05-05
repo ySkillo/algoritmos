@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    min:
+    <input type="text" id="inputMin">
+    max:
+    <input type="text" id="inputMax">
+
+<button onclick="gerar()">Gerar Aleatorio</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    // comando nativo => Math
+    // para acessar os métodos basta usar Math.
+    // usaremos o random no caso ficaria: Math.random()
+    function gerar() {
+        var min = Number(inputMin.value);
+        var max = Number(inputMax.value);
+        var mensagem = ""
+        var aleatorio = Math.random();
+
+        var intervalo = max - min;
+        var aleatorio_ate_max = aleatorio * max;
+        var aleatorio_ate_10 = aleatorio * 10; // de 0 até 9.99999
+        var aleatorio_intervalo = aleatorio * intervalo;
+        var aleatorio_min_max= aleatorio_intervalo + min;
+
+        mensagem += ` 
+            Numero sorteado: ${aleatorio}<br>
+            Numero até 10: ${aleatorio_ate_10}<br>
+            Numero até Max: ${aleatorio_ate_max}<br>
+            Numero entre o Intervalo: ${aleatorio_min_max}<br>
+            Numero entre o Inteiro: ${aleatorio_min_max.toFixed(0)}<br>
+        `
+
+
+
+
+
+
+
+
+
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+
+
+
+</script>

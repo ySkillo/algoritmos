@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        transition: 2s all;
+    }
+    .box{
+        margin-left: -100%;
+        transition: 5s;
+        width: 300px;
+        height: 300px;
+        background-color: red;
+    }
+
+</style>
+<body>
+
+        <button onclick="anterior()">Anterior</button>
+        <button onclick="prox()">Proximo</button>
+        <div id="div_mensagem">
+            <img src="mario1.png" style="width: 100px">
+        </div>
+
+        <div id="caixaTeste">
+        </div>
+
+        
+        <div id="caixaBt">
+            <button onclick="abrir()">Abrir</button>
+        </div>
+        
+</body>
+</html>
+
+
+<script>
+    var mensagem = "";
+    var contador = 1;
+
+
+
+    function abrir(){
+        caixaTeste.innerHTML = `<div class="box" style="margin-left: 0px;">teste
+                <button onclick="fechar()">Fechar</button></div>`;
+                caixaBt.innerHTML = ``;
+    }
+
+    function fechar(){
+        caixaTeste.innerHTML = ``;
+        caixaBt.innerHTML = `<button onclick="abrir()">Abrir</button>`;
+    }
+
+    //jeito mais facil de fazer um carrossel para o squad S2 :)
+
+
+    function prox(){
+        contador += 1;
+        console.log(contador)
+        if(contador == 0){
+            mensagem = `<img src="mario3.jpg" style="width: 100px">`
+        }
+        else if(contador == 1){
+            mensagem = `<img src="mario1.png" style="width: 100px">`
+        }
+        else if(contador == 2){
+            mensagem = `<img src="mario2.avif" style="width: 100px">`
+        }
+        else if(contador == 3){
+            mensagem = `<img src="mario3.jpg" style="width: 100px">`
+            contador -= 3;
+        }
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function anterior(){
+        contador -= 1;
+        console.log(contador)
+        if(contador == 0){
+            mensagem = `<img src="mario3.jpg" style="width: 100px">`
+        }
+        else if(contador == -1){
+            mensagem = `<img src="mario2.avif" style="width: 100px">`
+        }
+        else if(contador == -2){
+            mensagem = `<img src="mario1.png" style="width: 100px">`
+        }
+        else if(contador == -3){
+            mensagem = `<img src="mario3.jpg" style="width: 100px">`
+            contador += 3;
+        }
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>

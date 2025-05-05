@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="game()">jogar</button><br><br>
+
+    <div style="display: flex; width: 700px;justify-content: space-around;">
+        jogador1:
+        <div id="jogador"></div>
+
+        jogador2:
+        <div id="maquina"></div>
+    </div>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var contadorPlayer1 = 0;
+    var contadorPlayer2 = 0;
+
+    function game(){
+        var player1 = Math.round(Math.random() * 2 + 1);
+        var player2 = Math.round(Math.random() * 2 + 1);
+        var mensagem = "";
+        div_mensagem.innerHTML = mensagem;
+
+        var pedra = `<img src="https://www.playclick.com.br/jogo_jokenpo/img/pedra.png" alt="" style="width: 200px; height: 200px;">`;
+        var papel = `<img src="https://www.playclick.com.br/jogo_jokenpo/img/papel.png" alt="" style="width: 200px; height: 200px;">`;
+        var tesoura = `<img src="https://www.playclick.com.br/jogo_jokenpo/img/tesoura.png" alt="" style="width: 200px; height: 200px;">`;
+
+        if(player1 == 1){
+            jogador.innerHTML = pedra;
+        }else if(player1 == 2){
+            jogador.innerHTML = papel;
+        }else{
+            jogador.innerHTML = tesoura;
+        }
+
+        if(player2 == 1){
+            maquina.innerHTML = pedra;
+        }else if(player2 == 2){
+            maquina.innerHTML = papel;
+        }else{
+            maquina.innerHTML = tesoura;            
+        }
+
+        if(player1 == 1 && player2 == 3 ||
+            player1 == 2 && player2 == 1 ||
+            player1 == 3 && player2 == 2 
+        ){
+            mensagem += `
+                o jogador 1º venceu <br>
+            `;
+            contadorPlayer1 += 1;
+        }else if(player2 == 1 && player1 == 3 ||
+            player2 == 2 && player1 == 1 ||
+            player2 == 3 && player1 == 2){
+                mensagem += `
+                    o jogador 2º venceu <br>
+                `;
+                contadorPlayer2 += 1;
+        }else{
+            mensagem += `
+                EMPATE!<br>
+            `;
+        }
+            mensagem += `
+                jocador: ${contadorPlayer1} vitória(s) <br>
+                 maquina: ${contadorPlayer2} vitória(s)
+            `;
+
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+</script>

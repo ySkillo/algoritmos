@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="analisar()">
+        Gerar uma nota de aluno entre 3 e 10
+    </button>
+    <br>
+    <button onclick="frequencia()">
+        Gerar uma frequência de aluno entre 50 e 100
+    </button>
+    <br>
+    <button onclick="situação()">
+        Ver Situação
+    </button>
+    <div id="div_nota"></div>
+    <div id="div_frequencia"></div>
+    <div id="div_situacao"></div>
+</body>
+</html>
+<script>
+
+    var nota_ate_10 = 0
+    var frequencia_ate_100 = 0
+
+    function analisar() {
+        var nota_aleatoria = Math.random()
+        nota_ate_10 = (nota_aleatoria * 7 + 3).toFixed(1)
+        
+        div_nota.innerHTML = `${nota_ate_10}`
+    }
+
+    function frequencia() {
+        var frequencia_aleatoria = Math.random()
+        frequencia_ate_100 = (frequencia_aleatoria * 50 + 50).toFixed(1)
+
+        div_frequencia.innerHTML = `${frequencia_ate_100}`
+    }
+
+    function situação() {
+        if (nota_ate_10 > 6 && frequencia_ate_100 > 75) {
+            div_situacao.innerHTML = `Com nota ${nota_ate_10} e frequência ${frequencia_ate_100}, o aluno está aprovado!`
+        } else {
+            div_situacao.innerHTML = `Com nota ${nota_ate_10} e frequência ${frequencia_ate_100}, o aluno está reprovado!`
+        }
+    }
+</script>

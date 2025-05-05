@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="exibirFrase()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="div_frase"></div>
+</body>
+</html>
+
+<script>
+
+    function exibirFrase(){
+        var mensagem = "";
+        var frase = "Muito é massa!"
+
+        div_mensagem.innerHTML = mensagem;
+
+        for(var contador = 1; contador <= 7; contador ++){
+            mensagem += `${frase}<br>`;
+        }
+
+        div_frase.innerHTML = mensagem;
+    }
+
+</script>

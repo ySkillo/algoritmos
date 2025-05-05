@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <style>
+
+        #dado{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background: #000000;
+            color: #fff;
+        }
+
+        
+
+    </style>
+
+<body>
+    <!-- a) Tenha um botão "jogar dado";  
+
+    b) Ao clicar nele, sorteie um dos 20 números de
+    um dado D20 (Google) e exiba o número sorteado
+    em um quadrado com fundo preto, contendo a letra
+    branca e o número centralizado dentro do quadrado
+        (100px de largura e altura é suficiente);  -->
+    
+    <button onclick="sortear()">jogar dado</button><br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    function sortear(){
+        var aleatorio = Math.floor(Math.random() * 20 + 1);
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+        mensagem = 
+            `<div id="dado">
+                ${aleatorio}
+            </div>`
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>

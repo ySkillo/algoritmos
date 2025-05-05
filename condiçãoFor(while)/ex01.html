@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="contar()">Contar</button>
+    <div id="div_contagem"></div>
+</body>
+</html>
+
+<script>
+
+    function contar(){
+        var mensagem = "";
+        
+        div_contagem.innerHTML = mensagem;
+
+        for(var contador = 1; contador <= 15; contador ++){
+            mensagem += `${contador}<br>`;
+        }
+
+        div_contagem.innerHTML = mensagem;
+    }
+
+</script>

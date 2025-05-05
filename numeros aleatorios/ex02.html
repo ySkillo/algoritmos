@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- a) Ao clicar no botão "Sortear time", faz aparecer 
+    somente um dos escudos dos 4 times de futebol de
+     maior torcida do estado de São Paulo. Independente 
+     da imagem, todas devem ter 150px de altura.   -->
+
+
+    <button onclick="sortear()">Sortear time</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function sortear(){
+        var palmeiras = `<img src="https://lncimg.lance.com.br/cdn-cgi/image/width=1280,height=720,quality=75,fit=cover,format=webp/uploads/2024/09/escudo-palmeiras-aspect-ratio-512-320.jpg" alt="" style="width: 150px;">`;
+        var corinthians = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxM_f2WHVF5jOQCP2n1BEs2RTHE2uXHis4Xw&s" alt="" style="width: 150px;">`;
+        var santos = `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png" alt="" style="width: 150px;">`;
+        var saoPaulo = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKM5YAkuuvruYVaJ09QeS5-ZDg-v9xkjZ9CQ&s  " alt="" style="width: 150px;">`;
+       
+        var sorteio = Math.floor(Math.random()*4 + 1);
+        
+        var mensagem = "";
+        div_mensagem.innerHTML = mensagem;
+        if(sorteio == 1){
+            mensagem += `${palmeiras}<br>`;
+        }else if(sorteio == 2){
+            mensagem += `${corinthians}<br>`;
+        }else if(sorteio == 3){
+            mensagem += `${santos}<br>`;
+        }else{
+            mensagem += `${saoPaulo}<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="analisar()">
+        Gerar uma nota de aluno entre 0 e 10
+    </button>
+    <br>
+    <button onclick="frequencia()">
+        Gerar uma frequência de aluno entre 0 e 100
+    </button>
+    <br>
+    <button onclick="situação()">
+        Ver Situação
+    </button>
+    <div id="div_nota"></div>
+    <div id="div_frequencia"></div>
+</body>
+</html>
+<script>
+
+    var nota_ate_10 = 0
+    var frequencia_ate_100 = 0
+
+    function analisar() {
+        var nota_aleatoria = Math.random()
+        nota_ate_10 = (nota_aleatoria * 10).toFixed(2)
+        
+        div_nota.innerHTML = `${nota_ate_10}`
+    }
+
+    function frequencia() {
+        var frequencia_aleatoria = Math.random()
+        frequencia_ate_100 = (frequencia_aleatoria * 100 + 1).toFixed(2)
+
+        div_frequencia.innerHTML = `${frequencia_ate_100}`
+    }
+
+    function situação() {
+        if (nota_ate_10 > 8 && frequencia_ate_100 > 90) {
+            alert(`Situação: Muito Bom`)
+        } else if ( (nota_ate_10 > 7 && nota_ate_10 < 8) && (frequencia_ate_100 > 80 && frequencia_ate_100 < 90) ) {
+            alert(`Situação: Bom`)
+        } else if ( (nota_ate_10 > 6 && nota_ate_10 < 7) && (frequencia_ate_100 > 75 && frequencia_ate_100 < 80) ) {
+            alert(`Situação: ok`)
+        } else {
+            alert(`Situação: Ruim`)
+        }
+    }
+</script>

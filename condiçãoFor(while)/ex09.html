@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um intervalo de números:
+    <input type="number" id="input_num"><br>
+    <button onclick="numerosPares()">S2 Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    function numerosPares(){
+        var num = Number(input_num.value)
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        for (var contador = 1; contador <= num; contador++) {
+            if(contador % 2 == 0){
+                mensagem += `- ${contador} <br>`
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>
