@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Crie um programa o qual:  
+a) Tenha um campo "Digite um número qualquer";  
+
+b) Tenha um botão "Analisar histórico" que ao ser clicado, o número é 
+cadastrado em algum lugar e, em seguida, deve aparecer um histórico
+ dos números cadastrados, bem como o maior e o menor, como no exemplo a seguir:  
+
+   1º Número: 15  
+
+   2º Número: 22  
+
+   3º Número: 19  
+
+   4º Número: 5  
+
+   Maior: 22  
+
+   Menor: 5   -->
+
+    Digite um numero qualquer:
+    <input type="text" id="input_numero">
+    <button onclick="analisar()">Analisar histórico</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    
+    var lista = [];
+    function analisar(){
+        var numero = input_numero.value;
+        var mensagem = "";
+        var maior = lista[0];
+        var menor = lista[0];
+        div_mensagem.innerHTML = mensagem;
+
+        if(numero == ""){
+            alert("preencha os campos")
+        }else{
+            lista.push(numero)
+        }
+
+        for(var i = 0; i < lista.length; i++){
+            var numero_atual = lista[i];
+            mensagem += `
+                ${i + 1}º Número: ${lista[i]}<br>
+            `;
+
+            if(numero_atual > maior){
+                maior = numero_atual;
+            }
+            if(numero_atual < menor) {
+                menor = numero_atual;
+            }
+
+        }
+
+        if(maior != undefined && menor != undefined){
+            mensagem += `
+                <br>
+                ${maior}
+                <br>
+                ${menor}
+            `;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+
+
+
+    }
+
+</script>

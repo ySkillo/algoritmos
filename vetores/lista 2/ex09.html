@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Crie um programa o qual: 
+    a) Pergunte ao usuário o nome de cada projeto que já criou na vida.
+    Ele digita e clica em "Registrar projeto". Na medida em que vai cadastrando,
+    verifique quantos projetos já foram cadastrados e exiba o seguinte texto abaixo:  
+
+        Você já fez X projetos. Por isso você é um profissional Z  
+
+        X é a quantidade de projetos e Z é seu nível de experiência, segundo estas regras:  
+
+        0 a 4: Júnior  
+
+        5 a 12: Pleno  
+
+        13 ou mais: Sênior  
+
+    b)  Tenha um botão “Mostrar Projetos” que quando clicado mostra os projetos
+    cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.  -->
+
+
+    nome projeto criado:
+    <input type="text" id="inputProjeto"><br>
+    <button onclick="registrar()">Registrar projeto</button>
+    <div id="div_mensagem"></div>
+    <hr>
+    <button onclick="mostrarProjetos()">Mostrar projetos</button>
+    <div id="div_projetos"></div>
+
+</body>
+</html>
+
+
+<script>
+
+    var lista = [];
+
+    function registrar(){
+        var projeto = inputProjeto.value;
+        var profissional = "";
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        if(projeto == ""){
+            alert("Preencha os campos!");
+        }else{
+            lista.push(projeto);
+        }
+
+
+        if(lista.length > 0 && lista.length <= 4){
+            profissional = "Júnior";
+            mensagem = `
+                Você já fez ${lista.length} projetos. Por isso você é um profissional ${profissional}
+            `;
+
+        }else if(lista.length <= 12){
+            profissional = "Pleno";
+            mensagem = `
+                Você já fez ${lista.length} projetos. Por isso você é um profissional ${profissional}
+            `;
+
+        }else{
+            profissional = "Sênior";
+            mensagem = `
+                Você já fez ${lista.length} projetos. Por isso você é um profissional ${profissional}
+            `;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+
+
+    function mostrarProjetos(){
+        var mensagem = "";
+
+        div_projetos.innerHTML = mensagem;
+
+        for(var i = lista.length; i > 0; i--){
+            mensagem += `
+                ${lista[i - 1]}<br>
+            `;
+        }
+
+        div_projetos.innerHTML = mensagem;
+
+    }
+
+</script>

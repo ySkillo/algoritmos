@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Indique o resultado
+
+    <select id="input_resultado">
+        <option value="1">Vitoria</option>
+        <option value="2">Empate</option>
+        <option value="3">Derrota</option>
+    </select>
+    <br>
+    <button onclick="registrar()">
+        Registrar resultado
+    </button>
+    <br>
+    Qual jogo você quer saber o resultado?
+    <input type="text" id="input_jogo" oninput="jogao()">
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+    var lista = []
+
+    function registrar() {
+        var resultado = input_resultado.value
+        lista.push(resultado)
+        console.log(lista)
+        var qtd_v = 0
+        var qtd_e = 0
+        var qtd_d = 0
+
+        for (var contador = 0; contador < lista.length; contador++) {
+            if (lista[contador] == `1`) {
+                qtd_v++
+            } else if (lista[contador] == `2`) {
+                qtd_e++
+            } else if (lista[contador] == `3`) {
+                qtd_d++
+            }
+        }
+
+        var soma = (qtd_e * 1) + (qtd_v * 3)
+
+        var percentual = (((soma / lista.length) / 3) * 100)
+
+
+        div_resultado.innerHTML = `O time teve: ${qtd_v} vitórias, ${qtd_e} empates, ${qtd_d} derrotas  
+        <br><br>
+        Pontuação total: ${soma} pontos  
+        <br><br>
+        Aproveitamento: ${percentual}%  `
+    }
+
+    function jogao() {
+        var jogo = Number(input_jogo.value)
+        console.log("Cheguei na funcao")
+
+        var jogo_existe = true
+
+        if (lista.length > jogo - 1) {
+            jogo_existe = true
+        } else {
+            jogo_existe = false
+        }
+
+        if (jogo_existe) {
+            if (lista[jogo - 1] == `1`) {
+                div_resultado.innerHTML += `<br><br>No ${jogo}º jogo, o time Ganhou`
+            } else if (lista[jogo - 1] == `2`) {
+                div_resultado.innerHTML += `<br><br>No ${jogo}º jogo, o time Empatou`
+            } else if (lista[jogo - 1] == `3`) {
+                div_resultado.innerHTML += `<br><br>No ${jogo}º jogo, o time Perdeu`
+            }
+        } else {
+            div_resultado.innerHTML += `<br><br>Esse jogo ainda não aconteceu`
+        }
+    }
+</script>

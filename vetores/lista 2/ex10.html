@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--     
+    Crie um programa o qual:  
+a) O usuário vá registrando os nomes das linhas de ônibus que ele pegou durante a semana.
+ Ele digita o nome da linha e clica em "Gravar busão"; 
+
+b) Cada vez que o botão é clicado o programa deve mostrar a lista de linhas de ônibus 
+abaixo do botão e em ordem inversa (do último para o primeiro);  
+
+c) Deve haver outro campo em que ele pesquisa por uma linha que já tenha pego. 
+Ao clicar em "Pesquisar", deve ver uma dessas frases, abaixo da lista de linhas de ônibus que já pegou:  
+
+   Você nunca pegou essa linha (caso não tenha cadastrado a linha em questão)  
+
+   OU  
+
+   Você já pegou essa linha 4 vezes, nessa ordem: 2, 4, 8, 9  
+
+   (supondo que ele cadastrou a mesma linha na 2ª vez, na 4ª vez, na 8ª vez e na 9ª vez). -->
+
+    Informe as linhas de ônibus que pegou durante a semana:
+    <br>
+    <input type="text" id="inputLinhas">
+    <br>
+    <button onclick="gravarOnibus()">Gravar busão</button><br>
+    <div id="div_mensagem"></div><br>
+    <hr>
+    Realizar pesquisa:
+    <input type="text" id="inputPesquisa"><br>
+    <button onclick="realizarPesquisa()">Pesquisar</button>
+    <div id="div_pesquisa"></div>
+</body>
+
+</html>
+
+
+<script>
+
+    var lista = [];
+
+    function gravarOnibus() {
+        var onibus = inputLinhas.value;
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        if (onibus == "") {
+            alert("Preencha o campo")
+        } else {
+            lista.push(onibus)
+        }
+
+
+        for (var i = lista.length; i > 0; i--) {
+            mensagem += `
+                ${lista[i - 1]}<br>
+            `;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+
+    function realizarPesquisa() {
+        var pesquisa = inputPesquisa.value;
+        var mensagem = "";
+        var qnt = 0;
+        var conct = "";
+        div_pesquisa.innerHTML = mensagem;
+        if (lista.includes(pesquisa)) {
+            for (var i = 0; i < lista.length; i++) {
+                if (lista[i] == pesquisa) {
+                    qnt++
+                    conct += `${(i + 1) + ", "}`
+                }
+            };
+            mensagem = `
+                Você já pegou essa linha ${qnt} vezes, nessa ordem: ${conct} 
+            `;
+        } else {
+            mensagem = `
+                Você nunca pegou essa linha  
+            `;
+        }
+        div_pesquisa.innerHTML = mensagem;
+    }
+
+</script>

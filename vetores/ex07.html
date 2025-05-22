@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Crie um programa o qual:
+    a) O usuário informa os nomes dos filmes que mais gosta e clica em "Cadastrar"; 
+    b) Na medida em que vai cadastrando, os filmes vão aparecendo um abaixo do outro,
+     abaixo do botão, só que aparecem na cor azul, depois vermelho, depois azul, 
+     depois vermelho, e assim por diante ...   -->
+
+    Input informe o nome dos filmes:
+    <input type="text" id="nomesInput"><br>
+    <button onclick="cadastrar()">Verificando</button>
+    <div id="div_listar"></div>
+
+
+
+</body>
+
+</html>
+
+
+<script>
+
+    var lista = [];
+    function cadastrar() {
+
+        var filmes = nomesInput.value;
+        var mensagem = "";
+
+        div_listar.innerHTML = mensagem;
+
+        if (filmes == "") {
+            alert("preencha o campo de texto");
+        } else {
+            lista.push(filmes);
+        }
+        for (var i = 0; i < lista.length; i++) {
+            if (i % 2 == 0) {
+                mensagem += `
+                <p style="color: blue;">${i + 1}. ${lista[i]}</p>
+            `
+            } else {
+                mensagem += `
+                <p style="color: red;">${i + 1}. ${lista[i]}</p>
+            `
+            }
+        }
+
+        div_listar.innerHTML = mensagem;
+
+
+
+
+
+    }
+
+</script>

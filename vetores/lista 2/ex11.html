@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um programa o qual:  
+    a) Pergunte ao usuário o preço de um produto; 
+
+    b) Ao clicar em "Cadastrar", o preço fica cadastrado num lugar que o usuário não vê; 
+
+    c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços 
+    cadastrados (em ordem inversa) e um texto como este abaixo:  
+
+    Você tem X produtos cadastrados em estoque  
+
+    Seu estoque vale R$Y 
+
+    Em que X é a quantidade de produtos cadastrados pelo usuário e Y é a soma de todos os valores.  -->
+
+    
+    informe o preço:<br>
+    <input type="text" id="input_preco"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <hr>
+    <button onclick="atualizar()">Atualizar Estoque</button>
+    
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+
+    var lista = [];
+
+    function cadastrar(){
+        var preco = Number(input_preco.value);
+        if(preco == ""){
+            alert("Preencha o campo!");
+        }else{
+            lista.push(preco);
+        }
+    };
+
+    function atualizar(){
+        var mensagem = "";
+        var somar = 0;
+        div_mensagem.innerHTML = mensagem;
+
+        for(var i = lista.length; i > 0; i--){
+            mensagem +=`
+                ${lista[i - 1]} <br>
+            `;
+        }
+        for(var i = 0; i < lista.length; i++){
+            somar += lista[i]
+        }
+
+        mensagem += `
+            <br>
+            Você tem ${lista.length} produtos cadastrados em estoque 
+            <br><br>
+            Seu estoque vale R$${somar}
+            <br><br>
+            Em que ${lista.length} é a quantidade de produtos cadastrados pelo usuário e ${somar} é a soma de todos os valores.  
+        `;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+
+</script>

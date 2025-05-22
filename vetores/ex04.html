@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- 
+    Crie um programa o qual:
+
+a) O usuário informa os nomes dos filmes que mais gosta, começando pelo
+ seu favorito e depois o segundo que mais gosta e assim por diante. 
+
+b) Para cadastrar cada filme, ele clica em "Cadastrar filme";
+
+c) Crie um botão "Ver Favoritos" que, ao ser clicado, exibe os filmes favoritos;
+
+d) Exiba também, abaixo de tudo, uma frase assim:  "Total: X";
+
+d.1) Após a frase acima, mostre as seguintes frases: 
+
+ O que filme que mais gosta é A.
+
+ E desses, o que menos gosta é B 
+
+  Obs: "A" é o primeiro filme cadastrado e "B" o último. -->
+
+
+  informe o nome dos filmes:
+  <input type="text" id="filmesInput"><br>
+  <button onclick="cadastrar()">Cadastrar filme</button><br>
+
+  <button onclick="verFavoritos()">Ver favoritos</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+
+
+
+<script>
+    var lista = []
+    function cadastrar(){
+        var filmes = filmesInput.value;
+        
+        if(filmes == ""){
+            alert("campo vazio!")
+        }else{
+            lista.push(filmes);
+        }
+    
+    }
+
+    function verFavoritos(){
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        for(var i = 0; i < lista.length; i++){    
+                mensagem += `
+                    ${i + 1} - ${lista[i]} <br>
+                `   
+        }
+
+        mensagem += `Total: ${lista.length}<br>`
+        mensagem += `O que filme que mais gosta é ${lista[0]}<br>`
+        mensagem += `E desses, o que menos gosta é ${lista[lista.length - 1]}` 
+
+
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+</script>

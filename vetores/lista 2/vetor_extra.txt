@@ -1,0 +1,2 @@
+    método de ordenação.
+        vetor []

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- Crie um programa o qual:
+a) O usuário vá cadastrando os bairros onde morou; Ele digitará o nome do
+ lugar em um campo e clicará em "Cadastrar bairro". 
+
+b) Deve haver um outro campo, em que digita apenas um número, indicando o
+ local onde morou, a partir do número 1 (porque os usuários comuns contam as coisas assim).
+
+c) Após clicar em "Relembrar moradia", faça: 
+
+c.1) Se ele informar "1", exiba o primeiro bairro cadastrado; Se informar "2", 
+exiba o segundo bairro cadastrado e assim por diante ... 
+
+c.2) Porém, ao informar um número maior do que a quantidade de bairros cadastrados, exiba: 
+
+"Você ainda não morou num Xº bairro!"  -->
+
+    locais que morou:
+    <input type="text" id="bairroInput"><br>
+    <button onclick="salvarBairro()">Cadastrar bairro</button><br>
+    Número do local que morou:
+    <input type="number" id="numeroInput"><br>
+    <button onclick="relembrarMoradia()">Relembrar</button><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    var lista = []
+    function salvarBairro() {
+        var bairro = bairroInput.value;
+
+        if (bairro == "") {
+            alert("preencha os campos!")
+        } else {
+            lista.push(bairro);
+        }
+    }
+    function relembrarMoradia() {
+        var num = Number(numeroInput.value);
+        var mensagem = "";
+        div_mensagem.innerHTML = mensagem;
+        if (num < 1) {
+            alert("Informe um número maior que 0")
+        } else {
+            if(num > lista.length){
+                alert(`Você ainda não morou num ${num}º bairro!`)
+            }else{
+                num -= 1
+                mensagem += `
+                    ${num + 1} - ${lista[num]}
+                `
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+
+
+    }
+
+</script>

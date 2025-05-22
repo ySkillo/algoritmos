@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    Nome produto:
+    <input type="text" id="input_nome"><br>
+    Código produto:
+    <input type="text" id="input_codigo"><br>
+    Estoque produto:
+    <input type="text" id="input_estoque"><button onclick="cadastrar()">Cadastrar Produto</button><br><br>
+    <button onclick="repor()">Repor Estoque</button>
+    <button onclick="vender()">Vender Produto</button>
+    <button onclick="exibir()">Exibir Relatório</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+
+
+    //     A loja trabalha com uma lista de produtos  contendo um nome,
+    //      um código único e sua quantidade em estoque.
+
+    // O estoque deve ser atualizado conforme as vendas e reposições desses produtos.
+    // A loja trabalha como o mínimo de 10 unidades de cada produto registrado em seu
+
+    //  estoque, onde caso fique abaixo do limite, o sistema deve emitir um alerta indicando
+    //   que é hora de repor o estoque.
+    // O sistema não deve permitir as vendas que sejam maiores que a quantidade em estoque,
+    //  assim como a loja não pode vender sem estoque suficiente.
+
+
+    // Tenha um campo para registrar o nome, o código e a quantidade de produto (apenas números). 
+
+    // Tenha quatro botões: "Cadastrar Produto", "Repor Estoque", "Vender Produto" e "Exibir Relatório". 
+
+    // - Cadastro de Produto: O sistema deve cadastrar o produto, registrando seu nome, código e
+    //  quantidade em estoque. Caso os campos estejam todos preenchidos, a quantidade seja acima do 
+    //  mínimo e o código do produto ainda não exista no estoque, exiba "Produto NOME_DO_PRODUTO registrado com sucesso", 
+    //  mas caso contrário, exiba "Preencha todos os campos para registrar um novo produto" ou "Código de produto já existente", 
+    //  de acordo com a validação. 
+
+    function cadastrar() {
+        var nomeP = input_nome.value;
+        var codigoP = Number(input_codigo.value);
+        var produtoQ = Number(input_estoque.value);
+
+        if (nomeP == "" ||
+            codigoP == "" ||
+            produtoQ == ""
+        ) {
+            alert("Preencha todos os campos para registrar um novo produto");
+        } else {
+            if (produtoQ >= minimoUni) {
+                var codigoExiste = false;
+                for (var i = 0; i < codigo.length; i++) {
+                    if (codigoP == codigo[i]) {
+                        codigoExiste = true
+                    }
+                }
+                if (!codigoExiste) {
+                    nome.push(nomeP);
+                    codigo.push(codigoP);
+                    qntEstoque.push(produtoQ);
+                    alert("Produto" + nomeP + "registrado com sucesso")
+                } else {
+                    alert("Código de produto já existente")
+                }
+            } else {
+                alert("produto a baixo do minimo")
+            }
+
+        }
+    }
+
+    function repor() {
+        var nomeP = input_nome.value;
+        var codigoP = Number(input_codigo.value);
+        var produtoQ = Number(input_estoque.value);
+        var mensagem = "";
+        div_mensagem.innerHTML = mensagem;
+        if (nomeP == "" ||
+            codigoP == "" ||
+            produtoQ == ""
+        ) {
+            alert("Produto não identificado.")
+        } else if (produtoQ < 10) {
+            alert("Quantidade inválida.")
+        } else {
+            for (var i = 0; i < nome.length; i++) {
+                if (nomeP == nome[i] && codigoP == codigo[i]) {
+                    qntEstoque[i] += produtoQ;
+                    mensagem = `<br>${produtoQ}x do ${nomeP} foi reposto com sucesso`;
+                }
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+
+    var nome = []
+    var codigo = []
+    var qntEstoque = []
+    var minimoUni = 10;
+    var historico = [];
+
+
+    function vender() {
+        var nomeP = input_nome.value;
+        var codigoP = Number(input_codigo.value);
+        var produtoQ = Number(input_estoque.value);
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+        if (nomeP == "" ||
+            codigoP == "" ||
+            produtoQ == ""
+        ) {
+            mensagem = "Produto não identificado."
+        } else {
+            console.log("tudo preenchido")
+            for (var i = 0; i < nome.length; i++) {
+                if (nomeP == nome[i] && codigoP == codigo[i]) {
+                    if (qntEstoque[i] >= produtoQ) {
+                        qntEstoque[i] -= produtoQ
+                        mensagem = `<br>${produtoQ}x do ${nomeP} foi vendido com sucesso`;
+                        
+                        if (qntEstoque[i] >= 10){
+                            historico.push(`Código: ${codigoP} | Produto: ${nomeP} | Quantidade em Estoque: ${qntEstoque[i]}(OK)`)
+                        }else{
+                            historico.push(`Código: ${codigoP} | Produto: ${nomeP} | Quantidade em Estoque: ${qntEstoque[i]}(Precisa Repor)`)
+                            alert("produto" + nome[i] + "está abaixo de 10 no estoque, quantidade em estoque: "+ qntEstoque[i])
+                        }
+
+                    } else {
+                        mensagem = "Quantidade inválida"
+                    }
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+
+    }
+
+
+    function exibir(){
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem
+
+        for(var i = 0; i < historico.length; i++){
+            mensagem += "<br>" + historico[i]
+        }
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+
+</script>

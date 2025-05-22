@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Qual o nome do produto?
+    <input type="text" id="input_nome_produto">
+    <br>
+    Qual o preço do produto?
+    <input type="text" id="input_preco_produto">
+    <br>
+    <button onclick="cadastrar()">
+        Cadastrar
+    </button>
+    <br>
+    <button onclick="relatorio()">
+        Relátorio de estoque
+    </button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    var lista_produto = []
+    var lista_preco = []
+
+    function cadastrar() {
+        var nome = input_nome_produto.value
+        var preco = input_preco_produto.value
+
+
+
+        lista_produto.push(nome)
+        lista_preco.push(preco)
+    }
+
+    function relatorio() {
+        var mensagem = `Total de produtos: ${lista_produto.length}<br>`
+        var menor = 100000000000000000000000000000
+        var p_barato = ``
+        var p_caro = ``
+        var maior = -10000000000000000000000000000
+        var total = 0
+
+        for (var contador = 0; contador < lista_preco.length; contador++) {
+            mensagem += `<br> Produto ${contador + 1}: ${lista_produto[contador]}`
+            mensagem += `<br> Preço de compra: R$${lista_preco[contador]}. Vender por R$${lista_preco[contador] * 1.25}<br>`
+
+            if (lista_preco[contador] < menor) {
+                menor = lista_preco[contador]
+                p_barato = `${lista_produto[contador]}`
+            }
+
+            if (lista_preco[contador] > maior) {
+                maior = lista_preco[contador]
+                p_caro = `${lista_produto[contador]}`
+            }
+
+            var preco_p = Number(lista_preco[contador])
+            total += preco_p
+        }
+        var media = total / lista_preco.length
+
+        mensagem += `<br><br> O produto mais caro é: ${p_caro}
+        <br> O produto mais barato é: ${p_barato}
+        <br> A média do preço da venda é: ${media}
+        <br> O total da venda é: ${total}`
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="home">
+        <button onclick="iniciarJogo()">Jogar Sete e Meio</button>
+    </div>
+
+    <div id="div_baralho"></div>
+</body>
+
+</html>
+
+
+<script>
+
+    //cartas "Ás", "2", "3", "4", "5", "6", "7", "Valete", "Rainha" e "Rei"
+    var cartas = ["Ás", "2", "3", "4", "5", "6", "7", "Valete", "Rainha", "Rei"];
+
+    //naipes de "copas", "espadas", "ouros" e "paus"
+    var naipes = ["copas", "espadas", "ouros", "paus"];
+
+    var pontosFix = 0;
+    var pontoAs = 0;
+    var valorCarta = 0;
+
+
+    //sorteio de acordo com o tamanho de cartas
+    var aleatorio = Math.random() * cartas.length;
+    var inteiro = parseInt(aleatorio);
+
+
+
+    // O objetivo do jogo é obter uma pontuação maior que a do adversário, 
+    // sem que ultrapasse o limite de 7.5 pontos, sendo que ao obter exatamente 7.5 pontos, vence (igual ao jogo 21).
+
+
+    function iniciarJogo() {
+        
+        home.innerHTML = `
+        <button onclick="pedirNovaCarta()">Pedir Outra Carta</button>
+        <button>Passar Vez</button>`;
+        console.log(inteiro)         
+        if(inteiro == 0){
+            pontoAs += 1;
+            div_baralho.innerHTML = `
+                Jogador: <br><br>
+                (${pontoAs} pontos) - carta: ${cartas[inteiro]}
+            `;
+        }else if(inteiro == 7 || inteiro == 8 || inteiro == 9){
+            pontosFix += 0.5;
+            div_baralho.innerHTML = `
+                Jogador: <br><br>
+                (${pontosFix} pontos) - carta: ${cartas[inteiro]}
+            `;
+        }else{
+            valorCarta += parseInt(cartas[inteiro]);
+            div_baralho.innerHTML = `
+                Jogador: <br><br>
+                (${valorCarta} pontos) - carta: ${cartas[inteiro]}
+            `;
+        }
+
+    }
+
+    function pedirNovaCarta(){
+
+    }
+
+
+
+
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Crie um programa o qual: 
+a) Tenha um campo "Destino de viagem" e um botão "Adicionar";
+
+b) Ao clicar no botão, esse destino deve ser adicionado a uma lista (que não aparece para o usuário). 
+
+Obs: Não existe problema em serem registrados valores repetidos.
+
+c) Devem haver os botões: 
+
+  "Primeira viagem" - Ao ser clicado, aparece abaixo o primeiro local 
+  cadastrado ou "Ainda não viajou" - caso nenhuma (zero viagens) viagem tenha sido registrada;
+
+  "Terceira viagem" - Ao ser clicado, aparece abaixo o terceiro local
+   cadastrado ou "Ainda fez a terceira viagem", caso não tenha feito, ao menos, três viagens;
+
+  "Última viagem" - Ao ser clicado, aparece abaixo o último local 
+  cadastrado ou "Ainda não viajou", caso nenhuma (zero viagens) viagem tenha sido registrada. -->
+
+
+
+    Destino de viagem:
+    <input type="text" id="inputDestino"><br>
+    <button onclick="viagens()">Adicionar</button>
+    <br><br>
+    <button onclick="primeiraViagem()">Primeira viagem</button>
+    <div id="div_primeira"></div>
+    <button onclick="terceiraViagem()">Terceira Viagem</button>
+    <div id="div_terceira"></div>
+    <button onclick="ultimaViagem()">Ultima viagem</button>
+    <div id="div_ultima"></div>
+</body>
+
+</html>
+
+
+<script>
+
+    var lista = [];
+    function viagens() {
+        var destino = inputDestino.value
+            if(destino == ""){
+                alert("campo vazio")
+            }else{
+                lista.push(destino);
+                console.log(lista)
+            }
+    }
+
+    function primeiraViagem(){
+        var mensagem = "";
+        div_primeira.innerHTML = mensagem;
+        if(lista.length == []){
+            mensagem = `
+                ainda não viajou
+            `
+        } else{
+            mensagem = `
+                cadastrado: ${lista[0]}
+            `
+        }   
+        div_primeira.innerHTML = mensagem;
+    }
+
+    function terceiraViagem(){
+        var mensagem = "";
+        div_terceira.innerHTML = mensagem;
+        if(lista[2]){
+            mensagem = `
+                cadastrado: ${lista[2]}
+            `
+        } else{
+            mensagem = `
+                ainda não viajou
+            `
+        }   
+        div_terceira.innerHTML = mensagem;
+    }
+
+    function ultimaViagem(){
+        var mensagem = "";
+        div_ultima.innerHTML = mensagem;
+
+        if(lista.length == []){
+            mensagem = `
+                ainda não viajou
+            `
+        } else{
+            var ultima = lista.length - 1;
+            mensagem = `
+                cadastrado: ${lista[ultima]}
+            `
+        }   
+        div_ultima.innerHTML = mensagem;
+    }
+
+
+</script>

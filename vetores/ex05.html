@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Crie um programa o qual: 
+    a) Usuário cadastre os nomes de seus filmes favoritos e adiciona cada um ao clicar em "Cadastrar Filme";
+
+    b) Na medida em que vai cadastrando, deve ser exibido ou atualizado um "painel" como neste exemplo: 
+
+      Seu filme favorito: Donnie Darko
+
+      Seu 3º filme favorito: A era do gelo 1 
+
+      Total de filmes cadastrados: 5 
+
+    Obs: no "3º filme", caso não tenham sido cadastrados ainda 3 filmes, exibir "Ainda não existe". 
+
+    Obs: o "Filme favorito" é o primeiro cadastrado. -->
+
+    Nome dos filmes favoritos:
+    <input type="text" id="nomeFilmes"><br>
+    <button onclick="verificandoFilmes()">Cadastrar Filme</button><br>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+
+
+<script>
+
+    var lista = [];
+    function verificandoFilmes() {
+        var filme = nomeFilmes.value;
+        var mensagem = "";
+
+        div_mensagem.innerHTML = mensagem;
+
+        if (filme == "") {
+            alert("campos em branco")
+        } else {
+            lista.push(filme);
+
+            mensagem += `seu filme favorito: ${lista[0]} <br>`
+
+            if (!lista[2]) {
+                mensagem += `Ainda não existe<br>`
+            } else {
+                mensagem += `Seu 3º filme favorito: ${lista[2]}<br>`
+            }
+
+            mensagem += `Total de filmes cadastrados: ${lista.length}`
+
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>

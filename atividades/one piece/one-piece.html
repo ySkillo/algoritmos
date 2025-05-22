@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Cadastrar comidas:
+    <input type="text" id="inp_estoque"
+        style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;"
+        placeholder="cadastrar comida..."><br>
+    
+        <button onclick="cadastrar()"
+        style="background: #00ff1a; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Cadastrar</button>
+    <hr>
+
+    <button onclick="verificarQnt()"
+        style="background: #ffc400; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Verificar
+        Quantidade</button>
+    
+        <div id="div_mensagem"
+        style="width: 500px; height: 40px; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center; line-height: 40px;">
+    </div>
+    <hr>
+    Realizar pesquisa:
+    <input type="text" id="inp_pesquisar" placeholder="informe o nome da comida.."
+        style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;">
+    
+        <button onclick="pesquisar()"
+        style="background: #0088ff; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Pesquisar</button>
+    
+        <div id="div_pesquisa"
+        style="width: 500px; height: 40px; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center; line-height: 40px;">
+    </div>
+    <hr>
+
+    <button onclick="exibir()"
+        style="background: #ffc400; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Exibir Estoque</button>
+    
+        <div id="div_exibir" style="width: 500px; height: auto; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center;"></div>
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+<script>
+
+    var estoque = [];
+
+
+    function cadastrar() {
+        var comida_em_estoque = inp_estoque.value
+
+
+        if (comida_em_estoque == "") {
+            alert("Campo de cadastrar estoque está vazio");
+        } else {
+            estoque.push(comida_em_estoque);
+
+        }
+        console.log(estoque)
+
+    }
+
+    function verificarQnt() {
+        var mensagem = "";
+
+
+        div_mensagem.innerHTML = mensagem;
+
+        for (var i = 0; i < estoque.length; i++) {
+            if (estoque.length < 3) {
+                mensagem = `Desse jeito, o Luffy devora até o navio`
+                div_mensagem.style.display = "block";
+            } else if (estoque.length >= 3 && estoque.length <= 7) {
+                mensagem = `O comilão do Luffy não vai deixar sobrar nenhuma comida`
+                div_mensagem.style.display = "block";
+
+            } else if (estoque.length >= 8 && estoque.length < 10) {
+                mensagem = `Assim, talvez sobre um pouco para a tripulação`
+                div_mensagem.style.display = "block";
+
+            } else {
+                mensagem = `Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!`
+                div_mensagem.style.display = "block";
+
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function pesquisar() {
+        var comida_pesquisar = inp_pesquisar.value;
+        var mensagem = "";
+        var contador = 0;
+        div_pesquisa.innerHTML = mensagem;
+
+        if (comida_pesquisar == "") {
+            alert("pesquisa em branco...")
+        } else if (!estoque.includes(comida_pesquisar)) {
+            alert(`Alguém vai ter que comprar ${comida_pesquisar}, tá fazendo falta...`)
+        } else {
+            for (var i = 0; i < estoque.length; i++) {
+                if (estoque[i] == inp_pesquisar.value) {
+                    contador++
+                    mensagem = `Temos a comida ${comida_pesquisar} e há ${contador} unidade(s) dela`
+                }
+            }
+            div_pesquisa.style.display = "block";
+        }
+        div_pesquisa.innerHTML = mensagem;
+    }
+
+    var historico = []
+    var qntEstoque = []
+    function exibir(){
+        var mensagem = "";
+        var contador = 0;
+        div_exibir.innerHTML = mensagem
+
+        for(var i = 0; i < estoque.length; i++){
+            
+            
+
+            if(!historico.includes(estoque[i])){
+                historico.push(estoque[i])
+            }
+
+            for(var j = 0; j < estoque.length; j++){
+
+            }
+
+
+        }
+
+
+        for(var i = 0; i < historico.length; i++){
+            mensagem += `<br> ${historico[i]}`;            
+        }
+        
+        div_exibir.style.display = "block";
+        div_exibir.innerHTML = mensagem
+    }
+
+</script>
