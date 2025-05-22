@@ -7,41 +7,95 @@
     <title>Document</title>
 </head>
 
+
+<style>
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        background: linear-gradient(180deg, #0088ff, #fff, #fff);
+    }
+
+    input:focus {
+        border: 2px solid #f83f3f;
+    }
+
+    button {
+        cursor: pointer;
+    }
+</style>
+
 <body>
-    Cadastrar comidas:
-    <input type="text" id="inp_estoque"
-        style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;"
-        placeholder="cadastrar comida..."><br>
-    
+
+    <div
+        style="width: 600px; height: auto; border: 1px solid #999999; padding: 10px; border-radius: 10px; background-color: #ffffff;">
+
+        Cadastrar comidas:
+        <input type="text" id="inp_estoque"
+            style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;"
+            placeholder="cadastrar comida..."><br>
+
         <button onclick="cadastrar()"
-        style="background: #00ff1a; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Cadastrar</button>
-    <hr>
+            style="background: #00ff1a; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Cadastrar</button>
+        <hr>
 
-    <button onclick="verificarQnt()"
-        style="background: #ffc400; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Verificar
-        Quantidade</button>
-    
+        <button onclick="verificarQnt()"
+            style="background: #ffc400; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Verificar
+            Quantidade</button>
+
         <div id="div_mensagem"
-        style="width: 500px; height: 40px; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center; line-height: 40px;">
-    </div>
-    <hr>
-    Realizar pesquisa:
-    <input type="text" id="inp_pesquisar" placeholder="informe o nome da comida.."
-        style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;">
-    
+            style="width: 260px; height: auto; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center; line-height: 40px;">
+        </div>
+        <hr>
+        Realizar pesquisa:
+        <input type="text" id="inp_pesquisar" placeholder="informe o nome da comida.."
+            style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;">
+
         <button onclick="pesquisar()"
-        style="background: #0088ff; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Pesquisar</button>
-    
+            style="background: #0088ff; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Pesquisar</button>
+
         <div id="div_pesquisa"
-        style="width: 500px; height: 40px; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center; line-height: 40px;">
+            style="width: 500px; height: 40px; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center; line-height: 40px;">
+        </div>
+        <hr>
+
+        <button onclick="exibir()"
+            style="background: #ffc400; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Exibir
+            Estoque</button>
+
+        <div id="div_exibir"
+            style="width: 300px; background-color: #ececec; margin-top: 10px; border-radius: 5px; display: none; text-align: center; padding: 5px;">
+        </div>
+        <hr>
+        Nome atual:
+        <input type="text" id="inp_nomeAtual" placeholder="nome atual da comida.."
+            style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;"><br>
+        Novo nome:
+        <input type="text" id="inp_novoNome" placeholder="novo nome da comida.."
+            style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none; margin-top: 10px;">
+
+        <button onclick="atualizar()"
+            style="background: #0088ff; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">atualizar</button>
+
+
+        <div id="div_atualizar"
+            style="width: 300px; background-color: #ececec; margin-top: 10px; border-radius: 5px; display: none; text-align: center; padding: 5px;">
+        </div>
+        <hr>
+        Nome da comida:
+        <input type="text" id="inp_deleteComida" placeholder="Comida que irá para o lixo..."
+            style="width: 200px; height: 30px; border-radius: 5px; padding-left: 10px; outline: none;">
+        <button onclick="deletar()"
+            style="background: #f83f3f; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Remover
+            Comida</button>
+        <div id="div_deletar"
+            style="width: 300px; background-color: #ececec; margin-top: 10px; border-radius: 5px; display: none; text-align: center; padding: 5px;">
+        </div>
+
     </div>
-    <hr>
-
-    <button onclick="exibir()"
-        style="background: #ffc400; padding: 10px; border: none; outline: none; border-radius: 5px; font-weight: 600;">Exibir Estoque</button>
-    
-        <div id="div_exibir" style="width: 500px; height: auto; background-color: #ececec; margin-top: 5px; border-radius: 5px; display: none; text-align: center;"></div>
-
 
 
 
@@ -55,20 +109,17 @@
 <script>
 
     var estoque = [];
-
+    var historico = [];
+    var qntEstoque = [];
 
     function cadastrar() {
         var comida_em_estoque = inp_estoque.value
-
-
         if (comida_em_estoque == "") {
             alert("Campo de cadastrar estoque está vazio");
         } else {
             estoque.push(comida_em_estoque);
 
         }
-        console.log(estoque)
-
     }
 
     function verificarQnt() {
@@ -121,35 +172,99 @@
         div_pesquisa.innerHTML = mensagem;
     }
 
-    var historico = []
-    var qntEstoque = []
-    function exibir(){
+    function exibir() {
         var mensagem = "";
         var contador = 0;
+        qntEstoque = [];
+        historico = [];
         div_exibir.innerHTML = mensagem
 
-        for(var i = 0; i < estoque.length; i++){
-            
-            
 
-            if(!historico.includes(estoque[i])){
+        for (var i = 0; i < estoque.length; i++) {
+            if (!historico.includes(estoque[i])) {
                 historico.push(estoque[i])
+                contador = 0;
+
+                for (var j = 0; j < estoque.length; j++) {
+                    if (estoque[i] === estoque[j]) {
+                        contador++
+                    }
+                }
+                qntEstoque.push(contador)
             }
-
-            for(var j = 0; j < estoque.length; j++){
-
-            }
-
-
         }
 
-
-        for(var i = 0; i < historico.length; i++){
-            mensagem += `<br> ${historico[i]}`;            
+        for (var i = 0; i < historico.length; i++) {
+            if (qntEstoque[i] == 1) {
+                mensagem += `<p>${historico[i]} (${qntEstoque[i]} unidade)</p>`;
+            } else {
+                mensagem += `<p>${historico[i]} (${qntEstoque[i]} unidades)</p>`;
+            }
         }
-        
         div_exibir.style.display = "block";
         div_exibir.innerHTML = mensagem
     }
 
+    function atualizar() {
+        var nome_atual = inp_nomeAtual.value;
+        var novo_nome = inp_novoNome.value;
+        var mensagem = "";
+
+        div_atualizar.innerHTML = mensagem;
+
+        if (nome_atual == "" ||
+            novo_nome == ""
+        ) {
+            alert("campos vazios!")
+        } else {
+            if (estoque.includes(nome_atual)) {
+                for (var i = 0; i < estoque.length; i++) {
+                    if (estoque[i] == nome_atual) {
+                        estoque[i] = novo_nome
+                    }
+                }
+                mensagem = `A comida '${nome_atual}' foi alterada para '${novo_nome}'`
+            } else {
+                mensagem = `A comida '${nome_atual}' não foi encontrada no estoque.`
+            }
+        }
+        div_atualizar.style.display = "block";
+        div_atualizar.innerHTML = mensagem;
+
+
+
+
+
+
+
+
+
+
+    }
+
+    function deletar() {
+        var comida_deletada = inp_deleteComida.value;
+        var mensagem = "";
+
+        div_deletar.innerHTML = mensagem;
+        if (comida_deletada == "") {
+            alert("Campo vazio!")
+        } else {
+            if (estoque.includes(comida_deletada)) {
+                for (var i = 0; i < estoque.length; i++) {
+                    if (estoque[i] == comida_deletada) {
+                        estoque.splice(i, 1);
+                        i--;
+                    }
+                }
+                mensagem = `A comida '${comida_deletada}' foi removida do estoque.`
+            } else {
+                mensagem = `A comida '${comida_deletada}' não está no estoque.`
+            }
+        }
+        div_deletar.style.display = "block";
+        div_deletar.innerHTML = mensagem;
+
+
+    }
 </script>
